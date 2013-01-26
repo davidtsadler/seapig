@@ -19,5 +19,8 @@
     ],
     "engines" : {
         "node" : "*"
+    },
+    "devDependencies" : {
+        "grunt" : "*"
     }
 }
