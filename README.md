@@ -5,3 +5,7 @@ A jQuery Mobile powered site where the content has been parsed from the offical 
 
 ## License
 MIT
+
+Resources for Newcomers
+---
+  - [The Wiki](https://github.com/davidtsadler/seapig/wiki)
