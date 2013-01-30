@@ -1,6 +1,14 @@
 module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
+        download: {
+            dest: 'downloads'
+        },
+
+        clean: {
+            downloads: '<config:download.dest>'
+        },
+
         lint: {
             all: ['grunt.js']
         },
@@ -23,6 +31,8 @@ module.exports = function(grunt) {
             }
         }
     });
+
+    grunt.loadTasks('tasks');
 
     // Default task.
     grunt.registerTask('default', 'lint');
