@@ -1,15 +1,15 @@
 {
-    "name" : "seapig",
-    "version" : "0.0.1",
-    "description" : "A jQuery Mobile powered site where the content has been parsed from the offical eBay API wsdls.",
-    "author" : "David T. Sadler <davidtsadler.@googlemail.com> (http://davidtsadler.com/)",
-    "license" : "MIT",
-    "private" : true,
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/davidtsadler/seapig.git"
+    "name": "seapig",
+    "version": "0.0.1",
+    "description": "A jQuery Mobile powered site where the content has been parsed from the offical eBay API wsdls.",
+    "author": "David T. Sadler <davidtsadler.@googlemail.com> (http://davidtsadler.com/)",
+    "license": "MIT",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davidtsadler/seapig.git"
     },
-    "keywords" : [
+    "keywords": [
         "ebay",
         "jquery",
         "mobile",
@@ -17,10 +17,10 @@
         "api",
         "xslt"
     ],
-    "engines" : {
-        "node" : "*"
+    "engines": {
+        "node": "*"
     },
-    "devDependencies" : {
-        "grunt" : "*"
+    "devDependencies": {
+        "grunt": "~0.3.17"
     }
 }
