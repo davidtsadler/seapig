@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         },
 
         lint: {
-            all: ['grunt.js']
+            all: ['grunt.js', 'tasks/**']
         },
 
         jshint: {

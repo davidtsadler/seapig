@@ -1,0 +1,94 @@
+{
+    "files": [
+        {
+            "src": "http://developer.ebay.com/webservices/Finding/latest/FindingService.wsdl",
+            "dest": "finding.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/latest/ebaySvc.wsdl",
+            "dest": "trading.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/business-policies/latest/SellerProfilesManagementService.wsdl",
+            "dest": "business_policies_management.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/return-management/latest/ReturnManagementService.wsdl",
+            "dest": "return_management.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/product/latest/ProductService.wsdl",
+            "dest": "product.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/product-metadata/latest/ProductMetadataService.wsdl",
+            "dest": "product_metadata.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/related-items/latest/BundleManagementService.wsdl",
+            "dest": "related_items_management.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/order-size/latest/SellerDiscountOfferManagementService.wsdl",
+            "dest": "order_size_discounts.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/latest/ShoppingService.wsdl",
+            "dest": "shopping.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/merchandising/latest/MerchandisingService.wsdl",
+            "dest": "merchandising.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/best-match-item-details/latest/BestMatchItemDetailsService.wsdl",
+            "dest": "best_match_item_details.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/bulk-data-exchange/latest/BulkDataExchangeService.wsdl",
+            "dest": "bulk_data_exchange.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/file-transfer/latest/FileTransferService.wsdl",
+            "dest": "file_transfer.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/open-ebay-application-integration/latest/OpeneBayApplicationIntegrationService.wsdl",
+            "dest": "open_ebay_apps.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/feedback/latest/FeedbackService.wsdl",
+            "dest": "feedback.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/resolution-case-management/latest/ResolutionCaseManagementService.wsdl",
+            "dest": "resolution_case_management.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/payout-details/latest/PayoutDetailsService.wsdl",
+            "dest": "payout_details.wsdl",
+            "etag": ""
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/order-adjustment/latest/OrderAdjustmentService.wsdl",
+            "dest": "order_adjustment.wsdl",
+            "etag": ""
+        }
+    ]
+}
