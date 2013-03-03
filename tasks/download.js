@@ -11,15 +11,18 @@ module.exports = function(grunt) {
         var done = this.async();
         var destDirectory = path.resolve(grunt.config('download.dest'));
 
-        if (!fs.existsSync(destDirectory) && fs.statSync(destDirectory).isDirectory()) {
+        if (!grunt.file.exists(destDirectory) || !grunt.file.isDir(destDirectory)) {
             grunt.log.error('Downloads directory ' + destDirectory +' does not exist.');
             done(false);
         } else {
             var jsonFilePath = path.resolve('tasks/json/wsdls.json');
-            var wsdls = require(jsonFilePath);
-            async.forEachSeries(wsdls.files, async.apply(processWSDL, destDirectory), function () {
-                grunt.verbose.writeln('Updating JSON file ' + jsonFilePath);
-                fs.writeFile(jsonFilePath, JSON.stringify(wsdls, null, 4), function (err) {
+            var wsdls = grunt.file.readJSON(jsonFilePath);
+            var cacheInfoFilePath = path.resolve('tasks/json/cache.json');
+            var cacheInfo = loadCacheInfo(cacheInfoFilePath, wsdls); 
+
+            async.forEachSeries(wsdls.files, async.apply(processWSDL, cacheInfo, destDirectory), function () {
+                grunt.verbose.writeln('Updating JSON file ' + cacheInfoFilePath);
+                fs.writeFile(cacheInfoFilePath, JSON.stringify(cacheInfo, null, 4), function (err) {
                     if (err) {
                         grunt.log.error(err.message);
                         done(false);
@@ -30,11 +33,31 @@ module.exports = function(grunt) {
             });
         }
     });
+    
+    function loadCacheInfo(cacheInfoFilePath, wsdls)
+    {
+        var cacheInfo = {};
 
-    function processWSDL(destDirectory, wsdl, callback) {
+        if(!grunt.file.exists(cacheInfoFilePath)) {
+            grunt.verbose.writeln('Creating cache information.');
+            wsdls.files.forEach(function (wsdl) {
+                cacheInfo[wsdl.src] = {
+                    "last_etag_downloaded" : "",
+                    "last_etag_transformed" : ""
+                };
+            });
+        }
+        else {
+            cacheInfo = grunt.file.readJSON(cacheInfoFilePath);
+        }
+    
+        return cacheInfo;
+    }
+
+    function processWSDL(cacheInfo, destDirectory, wsdl, callback) {
         grunt.log.writeln('Processing ' + wsdl.src + '...');
         async.waterfall([
-            async.apply(downloadRequired, wsdl, destDirectory),
+            async.apply(downloadRequired, cacheInfo, wsdl, destDirectory),
             async.apply(downloadWSDL, wsdl, destDirectory)
         ], function(err, results) { 
             if (err) {
@@ -44,11 +67,11 @@ module.exports = function(grunt) {
         });
     }
 
-    function downloadRequired(wsdl, destDirectory, callback) {
-        if (!fs.existsSync(path.join(destDirectory, wsdl.dest))) {
+    function downloadRequired(cacheInfo, wsdl, destDirectory, callback) {
+        if (!grunt.file.exists(destDirectory, wsdl.dest)) {
             callback(null, true);
         } else {    
-            checkETAG(wsdl, function (err, noMatch) { 
+            checkETAG(cacheInfo, wsdl, function (err, noMatch) { 
                 if(err) {
                    callback(err); 
                 }
@@ -59,8 +82,9 @@ module.exports = function(grunt) {
         }
     }
 
-    function checkETAG(wsdl, callback) {
+    function checkETAG(cacheInfo, wsdl, callback) {
         var parsedEndpoint = url.parse(wsdl.src);
+        var cache = cacheInfo[wsdl.src];
 		var options = {
 			hostname : parsedEndpoint.hostname,
 			path : parsedEndpoint.path,
@@ -68,10 +92,10 @@ module.exports = function(grunt) {
         };
 
         var req = http.request(options, function (res) {
-            grunt.log.debug('res.headers.etag: ' + res.headers.etag);
-            grunt.log.debug('wsdl.etag:        ' + wsdl.etag);
-            var noMatch = res.headers.etag !== wsdl.etag;
-            wsdl.etag = res.headers.etag;
+            grunt.log.debug('res.headers.etag:           ' + res.headers.etag);
+            grunt.log.debug('cache.last_etag_downloaded: ' + cache.last_etag_downloaded);
+            var noMatch = res.headers.etag !== cache.last_etag_downloaded;
+            cache.last_etag_downloaded = res.headers.etag;
             callback(null, noMatch);
         });
         req.on('error', function (err) {

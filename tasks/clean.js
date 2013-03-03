@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
 
-    grunt.registerMultiTask('clean', 'Remove all files from the target\'s directory.', function () {
+    grunt.registerMultiTask('clean', 'Remove all files and folders recursively from the target\'s directory.', function () {
         var files;
 
         var directory = path.resolve(this.target);
@@ -13,12 +13,8 @@ module.exports = function (grunt) {
                 grunt.verbose.writeln('Cleaning ' + files.length + (files.length > 1  ? ' files' : ' file') + ' from ' + directory);
                 files.forEach(function (file) {
                     var filePath = path.join(directory, file);
-                    if (fs.statSync(filePath).isFile()) {
-                        fs.unlinkSync(filePath);
-                        grunt.verbose.writeln(file);
-                    } else {
-                        grunt.verbose.writeln('Skipping directory ' + file);
-                    }
+                    grunt.log.debug('Deleting ' + filePath);
+                    grunt.file.delete(filePath); 
                 });
             } else {
                 grunt.verbose.writeln('No files to clean from ' + directory);
