@@ -9,11 +9,8 @@ module.exports = function(grunt) {
             downloads: '<config:download.dest>'
         },
 
-        lint: {
-            all: ['grunt.js', 'tasks/**']
-        },
-
         jshint: {
+            all: ['grunt.js', 'tasks/*.js', 'tasks/json/*.json'],
             options: {
                 curly: true,
                 eqeqeq: true,
@@ -32,8 +29,9 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadTasks('tasks');
 
     // Default task.
-    grunt.registerTask('default', 'lint');
+    grunt.registerTask('default', 'jshint');
 };

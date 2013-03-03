@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var path = require('path');
     var http = require('http');
     var url = require('url');
-    var async = grunt.utils.async;
+    var async = grunt.util.async;
 
     grunt.registerTask('download', 'Intelligently download the eBay API WSDLs.', function () {
         grunt.config.requires('download.dest');
@@ -68,6 +68,8 @@ module.exports = function(grunt) {
         };
 
         var req = http.request(options, function (res) {
+            grunt.log.debug('res.headers.etag: ' + res.headers.etag);
+            grunt.log.debug('wsdl.etag:        ' + wsdl.etag);
             var noMatch = res.headers.etag !== wsdl.etag;
             wsdl.etag = res.headers.etag;
             callback(null, noMatch);
