@@ -15,6 +15,14 @@ module.exports = function(grunt) {
             transformed: ['<%= transform.dest %>/*']
         },
 
+        connect: {
+            transformed: {
+                options: {
+                    base: '<%= transform.dest %>'
+                  }
+            }
+        },
+
         jshint: {
             all: ['grunt.js', 'tasks/*.js', 'tasks/json/*.json'],
             options: {
@@ -37,6 +45,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadTasks('tasks');
 
     // Default task.
