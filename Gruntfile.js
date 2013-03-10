@@ -5,8 +5,14 @@ module.exports = function(grunt) {
             dest: 'downloads'
         },
 
+        transform: {
+            wsdls: 'downloads',
+            dest: 'transformed'
+        },
+
         clean: {
-            downloads: '<config:download.dest>'
+            downloads: '<config:download.dest>',
+            transformed: '<config:transform.dest>'
         },
 
         jshint: {

@@ -7,6 +7,8 @@ module.exports = function (grunt) {
 
         var directory = path.resolve(this.target);
 
+        grunt.log.debug('Clean directory ' + directory);
+
         try {
             files = fs.readdirSync(directory);
             if (files.length > 0) {

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+  <category name="Searching">
+    <service name="Finding" local-wsdl="finding.wsdl">
+      <description>Search eBay. Build search and browse experiences.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/finding/Concepts/FindingAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/finding/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/finding/Tutorials/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/finding/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/finding/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/Finding/latest/FindingService.wsdl" />
+      </ebay-urls>
+    </service>
+  </category>
+  <category name="Selling">
+    <service name="Trading" local-wsdl="trading.wsdl">
+      <description>List and manage inventory, fulfill orders, communicate with customers, and more.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/XML/docs/WebHelp/index.htm" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/XML/docs/WebHelp/InvokingWebServices-.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/XML/docs/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/XML/docs/Reference/eBay/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/XML/docs/WebHelp/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/latest/ebaySvc.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Business Policies Management" local-wsdl="business_policies_management.wsdl">
+      <description>Create payment, shipping, and return policy profiles that can be applied to entire category groups.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/business-policies/Concepts/BusinessPoliciesAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/business-policies/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/business-policies/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/business-policies/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/business-policies/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/business-policies/latest/SellerProfilesManagementService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Return Management" local-wsdl="return_management.wsdl">
+      <description>Retrieve and manage buyer returns.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/return-management/Concepts/ReturnManagementAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/return-management/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/return-management/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/return-management/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/return-management/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/return-management/latest/ReturnManagementService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Product" local-wsdl="product.wsdl">
+      <description>Retrieve product information for parts compatibility.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/product/Concepts/ProductAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/product/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/product/Tutorials/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/product/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/product/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/product/latest/ProductService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Product Metadata" local-wsdl="product_metadata.wsdl">
+      <description>Retrieve product information for parts compatibility.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/Product/Concepts/ProductAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/Product/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/product-metadata/HowTo/index.html" />
+        <url name="Call Reference" href="" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/product-metadata/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/product-metadata/latest/ProductMetadataService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Related Items Management" local-wsdl="related_items_management.wsdl">
+      <description>Create and manage product bundles.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/related-items/Concepts/SalesMaximizerAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/related-items/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/related-items/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/related-items/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/related-items/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/related-items/latest/BundleManagementService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Order Size Discounts" local-wsdl="order_size_discounts.wsdl">
+      <description>Create and manage discount campaigns.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/order-size/Concepts/SalesMaximizerAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/order-size/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/order-size/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/order-size/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/order-size/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/order-size/latest/SellerDiscountOfferManagementService.wsdl" />
+      </ebay-urls>
+    </service>
+  </category>
+  <category name="Buying">
+    <service name="Shopping" local-wsdl="shopping.wsdl">
+      <description>Retrieve public item and user data.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/shopping/docs/Concepts/ShoppingAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/shopping/docs/Concepts/ShoppingAPI_FormatOverview.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/shopping/docs/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/shopping/docs/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/shopping/docs/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/latest/ShoppingService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Merchandising" local-wsdl="merchandising.wsdl">
+      <description>Cross-sell and up-sell eBay items to buyers.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/merchandising/docs/Concepts/MerchandisingAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/merchandising/docs/Concepts/MerchandisingAPI_FormatOverview.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/merchandising/docs/Tutorials/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/merchandising/docs/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/merchandising/docs/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/merchandising/latest/MerchandisingService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Best Match Item Details" local-wsdl="best_match_item_details.wsdl">
+      <description>Understand factors that influence your Best Match ranking.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/best-match-item-details/Concepts/BestMatchItemDetailsAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/best-match-item-details/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/best-match-item-details/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/best-match-item-details/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/best-match-item-details/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/best-match-item-details/latest/BestMatchItemDetailsService.wsdl" />
+      </ebay-urls>
+    </service>
+  </category>
+  <category name="Large Merchant Services">
+    <service name="Bulk Data Exchange" local-wsdl="bulk_data_exchange.wsdl">
+      <description>Manage inventory and orders on a large scale.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/LMS_APIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/DevZone/bulk-data-exchange/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/DevZone/bulk-data-exchange/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/DevZone/bulk-data-exchange/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/bulk-data-exchange/latest/BulkDataExchangeService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="File Transfer" local-wsdl="file_transfer.wsdl">
+      <description>Manage inventory and orders on a large scale.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/LMS_APIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/DevZone/file-transfer/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/DevZone/file-transfer/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/DevZone/file-transfer/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/file-transfer/latest/FileTransferService.wsdl" />
+      </ebay-urls>
+    </service>
+  </category>
+  <category name="eBay Applications">
+    <service name="Open eBay Apps" local-wsdl="open_ebay_apps.wsdl">
+      <description>Note: The Open eBay Apps program is no longer accepting new applications. The Open eBay Apps documentation is provided as a convenience for existing Open eBay Apps developers only. Embed your app in the eBay.com interface.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/DevZone/open-ebay-apps/Concepts/LandUG.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/DevZone/open-ebay-apps/Concepts/MakingAnAPICall.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/DevZone/open-ebay-apps/Concepts/LandAPIRef.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/DevZone/open-ebay-apps/Concepts/LandReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/open-ebay-application-integration/latest/OpeneBayApplicationIntegrationService.wsdl" />
+      </ebay-urls>
+    </service>
+  </category>
+  <category name="Users">
+    <service name="Feedback" local-wsdl="feedback.wsdl">
+      <description>Report on Detailed Seller Ratings (DSRs).</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/feedback/Concepts/FeedbackAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/feedback/CallRef/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/feedback/Tutorials/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/feedback/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/feedback/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/feedback/latest/FeedbackService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Resolution Case Management" local-wsdl="resolution_case_management.wsdl">
+      <description>Retrieve dispute details.</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/resolution-case-management/Concepts/ResoCaseAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/resolution-case-management/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/resolution-case-management/Tutorials/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/resolution-case-management/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/resolution-case-management/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/resolution-case-management/latest/ResolutionCaseManagementService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Payout Details" local-wsdl="payout_details.wsdl">
+      <description>Retrieve details on payouts sent by eBay to a seller's account. (for sellers listing on eBay Germany and Austria sites only)</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/payout-details/Concepts/PayoutDetailsAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/payout-details/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/payout-details/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/payout-details/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/payout-details/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/payout-details/latest/PayoutDetailsService.wsdl" />
+      </ebay-urls>
+    </service>
+    <service name="Order Adjustment" local-wsdl="order_adjustment.wsdl">
+      <description>Resolve payment discrepancies, such as overpayment or underpayment by buyers, for a seller's orders. (for sellers listing on eBay Germany and Austria sites only)</description>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/Devzone/order-adjustment/Concepts/OrderAdjustmentAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/order-adjustment/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/Devzone/order-adjustment/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/Devzone/order-adjustment/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/Devzone/order-adjustment/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/order-adjustment/latest/OrderAdjustmentService.wsdl" />
+      </ebay-urls>
+    </service>
+  </category>
+</services>
