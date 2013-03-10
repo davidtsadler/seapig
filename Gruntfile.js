@@ -11,8 +11,8 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            downloads: '<config:download.dest>',
-            transformed: '<config:transform.dest>'
+            downloads: ['<%= download.dest %>/*'],
+            transformed: ['<%= transform.dest %>/*']
         },
 
         jshint: {
@@ -36,6 +36,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadTasks('tasks');
 
     // Default task.
