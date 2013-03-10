@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         },
 
         transform: {
-            wsdls: 'downloads',
+            wsdls: '<%= download.dest %>',
             dest: 'transformed'
         },
 
