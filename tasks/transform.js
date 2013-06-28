@@ -21,7 +21,8 @@ module.exports = function(grunt) {
         } else {
             async.series([
                 async.apply(transformServices, destDirectory),
-                async.apply(transformCallReference, wsdlDirectory, destDirectory)
+                async.apply(transformCallReference, wsdlDirectory, destDirectory),
+                async.apply(transformRequestResponse, wsdlDirectory, destDirectory)
             ], function(err) { 
                 if (err) {
                     grunt.log.error(err.message);
@@ -39,6 +40,10 @@ module.exports = function(grunt) {
 
     function transformCallReference(wsdlDirectory, destDirectory, callback) {
         saxonb('xml/services.xml', 'xsl/call_reference.xsl', wsdlDirectory, destDirectory, callback);
+    }
+
+    function transformRequestResponse(wsdlDirectory, destDirectory, callback) {
+        saxonb('xml/services.xml', 'xsl/request_response.xsl', wsdlDirectory, destDirectory, callback);
     }
 
     function saxonb(xml, xsl, wsdlDirectory, destDirectory, callback) {
