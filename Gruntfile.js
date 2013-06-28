@@ -18,7 +18,9 @@ module.exports = function(grunt) {
         connect: {
             transformed: {
                 options: {
-                    base: '<%= transform.dest %>'
+                    hostname: '*',
+                    base: '<%= transform.dest %>',
+                    keepalive: true
                   }
             }
         },
