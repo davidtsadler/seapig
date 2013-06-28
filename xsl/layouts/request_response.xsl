@@ -10,7 +10,7 @@
 
 <xsl:template match="operation" mode="layout-request">
   <xsl:variable name="content" as="element()+">
-    <h3>Request</h3>
+    <h2>Request</h2>
     <ul data-role="listview" data-inset="true" data-filter="true">
     <xsl:apply-templates select="request/*" mode="layout"/>
     </ul>
@@ -23,7 +23,7 @@
 
 <xsl:template match="operation" mode="layout-response">
   <xsl:variable name="content" as="element()+">
-    <h3>Response</h3>
+    <h2>Response</h2>
     <ul data-role="listview" data-inset="true" data-filter="true">
     <xsl:apply-templates select="response/*" mode="layout"/>
     </ul>
@@ -35,12 +35,23 @@
 </xsl:template>
 
 <xsl:template match="*" mode="layout">
+  <xsl:variable name="ancestors" as="xs:string*">
+    <xsl:for-each select="ancestor::*">
+      <xsl:sort select="position()" order="ascending"/>
+      <xsl:if test="position() > 2">
+        <xsl:value-of select="concat(name(), ' ')"/>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:variable>
   <xsl:element name="li">
-    <xsl:attribute name="data-filtertext" select="name()"/>
+    <xsl:attribute name="data-filtertext">
+      <xsl:value-of select="$ancestors"/>
+      <xsl:value-of select="name()"/>
+    </xsl:attribute>
     <div class="ui-grid-a">
       <div class="ui-block-a">
         <ul>
-          <li><strong><xsl:value-of select="name()"/></strong></li>
+          <li><xsl:value-of select="$ancestors"/><strong><xsl:value-of select="name()"/></strong></li>
           <xsl:apply-templates select="@type" mode="layout"/>
           <xsl:apply-templates select="@required|@returned" mode="layout"/>
         </ul>

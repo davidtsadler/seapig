@@ -52,6 +52,6 @@
 </xsl:template>
 
 <xsl:template match="wsdl:portType/wsdl:operation" mode="layout">
-  <li><a href="{@name}/"><xsl:value-of select="@name"/></a></li>
+  <li><a href="{@name}/request/"><xsl:value-of select="@name"/></a></li>
 </xsl:template>
 </xsl:stylesheet>
