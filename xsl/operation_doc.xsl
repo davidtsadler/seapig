@@ -155,18 +155,39 @@
   <xsl:param name="field" as="element()?"/>
   <xsl:param name="operation" as="xs:string"/>
   <xsl:variable name="appInfo" select="$field/xs:annotation/xs:appinfo" as="element()?"/>
-  <xsl:variable name="str" select="string(($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))][*:RequiredInput]/*:RequiredInput)[1])"/>
   <xsl:choose>
-    <xsl:when test="$str='Yes'">
+    <xsl:when test="$appInfo">
+      <xsl:variable name="str" select="string(($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))][*:RequiredInput]/*:RequiredInput)[1])"/>
+      <xsl:choose>
+        <xsl:when test="$str='Yes'">
+          <xsl:sequence select="'Required'"/>
+        </xsl:when>
+        <xsl:when test="$str='No'">
+          <xsl:sequence select="'Optional'"/>
+        </xsl:when>
+        <xsl:when test="$str='Conditionally'">
+          <xsl:sequence select="'Conditional'"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="str" select="string(($appInfo/*:callInfo[*:allCalls or *:callName=$operation or (*:allCallsExcept and not(tokenize(*:allCallsExcept,', ')=$operation))][*:requiredInput]/*:requiredInput)[1])"/>
+          <xsl:choose>
+            <xsl:when test="$str='Yes'">
+              <xsl:sequence select="'Required'"/>
+            </xsl:when>
+            <xsl:when test="$str='No'">
+              <xsl:sequence select="'Optional'"/>
+            </xsl:when>
+            <xsl:when test="$str='Conditionally'">
+              <xsl:sequence select="'Conditional'"/>
+            </xsl:when>
+            <xsl:otherwise><xsl:sequence select="''"/></xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
       <xsl:sequence select="'Required'"/>
-    </xsl:when>
-    <xsl:when test="$str='No'">
-      <xsl:sequence select="'Optional'"/>
-    </xsl:when>
-    <xsl:when test="$str='Conditionally'">
-      <xsl:sequence select="'Conditional'"/>
-    </xsl:when>
-    <xsl:otherwise><xsl:sequence select="''"/></xsl:otherwise>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:function>
 
@@ -174,7 +195,22 @@
   <xsl:param name="field" as="element()"/>
   <xsl:param name="operation" as="xs:string"/>
   <xsl:variable name="appInfo" select="$field/xs:annotation/xs:appinfo" as="element()?" />
-  <xsl:sequence select="string(($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))][*:Returned]/*:Returned)[1])"/>
+  <xsl:choose>
+    <xsl:when test="$appInfo">
+      <xsl:variable name="str" select="string(($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))][*:Returned]/*:Returned)[1])"/>
+      <xsl:choose>
+        <xsl:when test="$str!=''">
+          <xsl:sequence select="$str"/>
+        </xsl:when>
+        <xsl:otherwise>
+        <xsl:sequence select="string(($appInfo/*:callInfo[*:allCalls or *:callName=$operation or (*:allCallsExcept and not(tokenize(*:allCallsExcept,', ')=$operation))][*:returned]/*:returned)[1])"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:sequence select="'Always'"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:function>
 
 </xsl:stylesheet>
