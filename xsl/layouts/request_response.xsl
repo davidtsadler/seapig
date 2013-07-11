@@ -51,7 +51,7 @@
     <div class="ui-grid-a">
       <div class="ui-block-a">
         <ul>
-          <li><xsl:value-of select="$ancestors"/><strong><xsl:value-of select="name()"/></strong></li>
+          <li><xsl:value-of select="$ancestors"/><strong><xsl:if test="@is-attribute">[</xsl:if><xsl:value-of select="name()"/><xsl:if test="@is-attribute">]</xsl:if></strong></li>
           <xsl:apply-templates select="@type" mode="layout"/>
           <xsl:apply-templates select="@required|@returned" mode="layout"/>
         </ul>
