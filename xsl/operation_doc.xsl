@@ -42,6 +42,13 @@
   <xsl:apply-templates select="xs:complexContent/xs:extension" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
   </xsl:apply-templates>
+  <xsl:apply-templates select="xs:simpleContent/xs:extension" mode="operation-doc">
+    <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
+  </xsl:apply-templates>
+  <xsl:apply-templates select="xs:attribute[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
+    <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
+    <xsl:sort select="@name"/>
+  </xsl:apply-templates>
   <xsl:apply-templates select="xs:sequence/xs:element[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
     <xsl:sort select="@name"/>
@@ -56,19 +63,26 @@
   <xsl:apply-templates select="//xs:complexType[@name=$type]" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="$anti-recursion"/>
   </xsl:apply-templates>
+  <xsl:apply-templates select="xs:attribute[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
+    <xsl:with-param name="anti-recursion" select="$anti-recursion"/>
+    <xsl:sort select="@name"/>
+  </xsl:apply-templates>
   <xsl:apply-templates select="xs:sequence/xs:element[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="$anti-recursion"/>
     <xsl:sort select="@name"/>
   </xsl:apply-templates>
 </xsl:template>
 
-<xsl:template match="xs:element" mode="operation-doc">
+<xsl:template match="xs:element|xs:attribute" mode="operation-doc">
   <xsl:param name="operation" as="xs:string" tunnel="yes"/>
   <xsl:param name="inOut" as="xs:string" tunnel="yes"/>
   <xsl:param name="anti-recursion" as="xs:string"/>
   <xsl:variable name="type" select="substring-after(@type, ':')"/>
   <xsl:element name="{@name}">
     <xsl:attribute name="type" select="$type"/>
+    <xsl:if test="name()='xs:attribute'">
+      <xsl:attribute name="is-attribute"/>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="$inOut='in'">
         <xsl:attribute name="required" select="dts:get_required_input(., $operation)"/>
