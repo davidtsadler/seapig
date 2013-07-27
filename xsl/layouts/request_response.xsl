@@ -9,6 +9,10 @@
   exclude-result-prefixes="xs wsdl wsdlsoap soap12">
 
 <xsl:template match="operation" mode="layout-request">
+  <xsl:param name="serviceName" as="xs:string"/>
+  <xsl:variable name="serviceBtn" as="element()+">
+    <a href="../../" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><xsl:value-of select="$serviceName"/></a>
+  </xsl:variable>
   <xsl:variable name="navbar" as="element()+">
     <div data-role="navbar">
       <ul>
@@ -24,6 +28,7 @@
     </ul>
   </xsl:variable>
   <xsl:call-template name="layout-default">
+    <xsl:with-param name="serviceBtn" select="$serviceBtn"/>
     <xsl:with-param name="navbar" select="$navbar"/>
     <xsl:with-param name="content" select="$content"/>
     <xsl:with-param name="pageTitle" select="@name"/>
@@ -31,6 +36,10 @@
 </xsl:template>
 
 <xsl:template match="operation" mode="layout-response">
+  <xsl:param name="serviceName" as="xs:string"/>
+  <xsl:variable name="serviceBtn" as="element()+">
+    <a href="../../" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><xsl:value-of select="$serviceName"/></a>
+  </xsl:variable>
   <xsl:variable name="navbar" as="element()+">
     <div data-role="navbar">
       <ul>
@@ -46,6 +55,7 @@
     </ul>
   </xsl:variable>
   <xsl:call-template name="layout-default">
+    <xsl:with-param name="serviceBtn" select="$serviceBtn"/>
     <xsl:with-param name="navbar" select="$navbar"/>
     <xsl:with-param name="content" select="$content"/>
     <xsl:with-param name="pageTitle" select="@name"/>

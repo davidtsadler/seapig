@@ -6,6 +6,7 @@
   exclude-result-prefixes="xs">
 
 <xsl:template name="layout-default">
+  <xsl:param name="serviceBtn" as="element()*"/>
   <xsl:param name="navbar" as="element()*"/>
   <xsl:param name="content" as="element()+"/>
   <xsl:param name="pageTitle" select="''" as="xs:string"/>
@@ -24,8 +25,11 @@
   <body>
     <div data-role="page">
       <div data-role="header">
+        <div class="ui-btn-left">
+          <a href="/" data-role="button" data-inline="true" data-icon="home">Home</a>
+          <xsl:copy-of select="$serviceBtn"/>
+        </div>
         <h1><xsl:value-of select="$pageTitle"/></h1>
-        <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
       </div>
       <xsl:copy-of select="$navbar"/>
       <div data-role="content">

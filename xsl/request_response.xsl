@@ -28,15 +28,20 @@
 <xsl:template match="service">
   <xsl:variable name="wsdl" select="document(concat(concat($wsdlDirectory,'/'),@local-wsdl))" as="document-node()"/>
   <xsl:variable name="href" select="replace(lower-case(@name), ' ', '_')" as="xs:string"/>
+  <xsl:variable name="serviceName" select="@name" as="xs:string"/>
   <xsl:for-each select="$wsdl//wsdl:portType/wsdl:operation">
     <xsl:variable name="operation" as="element()+">
       <xsl:apply-templates select="." mode="operation-doc"/>
     </xsl:variable>
     <xsl:result-document href="{$destDirectory}/{$href}/{@name}/request/index.html">
-      <xsl:apply-templates select="$operation" mode="layout-request"/>
+      <xsl:apply-templates select="$operation" mode="layout-request">
+        <xsl:with-param name="serviceName" select="$serviceName"/>
+      </xsl:apply-templates>
     </xsl:result-document>
     <xsl:result-document href="{$destDirectory}/{$href}/{@name}/response/index.html">
-      <xsl:apply-templates select="$operation" mode="layout-response"/>
+      <xsl:apply-templates select="$operation" mode="layout-response">
+        <xsl:with-param name="serviceName" select="$serviceName"/>
+      </xsl:apply-templates>
     </xsl:result-document>
   </xsl:for-each>
 </xsl:template>
