@@ -6,6 +6,7 @@
   exclude-result-prefixes="xs">
 
 <xsl:template name="layout-default">
+  <xsl:param name="navbar" as="element()*"/>
   <xsl:param name="content" as="element()+"/>
   <xsl:param name="pageTitle" select="''" as="xs:string"/>
 <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html>
@@ -26,6 +27,7 @@
         <h1><xsl:value-of select="$pageTitle"/></h1>
         <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
       </div>
+      <xsl:copy-of select="$navbar"/>
       <div data-role="content">
       <xsl:copy-of select="$content"/>
       </div>

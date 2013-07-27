@@ -9,6 +9,14 @@
   exclude-result-prefixes="xs wsdl wsdlsoap soap12">
 
 <xsl:template match="operation" mode="layout-request">
+  <xsl:variable name="navbar" as="element()+">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="" class="ui-btn-active ui-state-persist">Request</a></li>
+        <li><a href="../response/">Response</a></li>
+      </ul>
+    </div> 
+  </xsl:variable>
   <xsl:variable name="content" as="element()+">
     <h2>Request</h2>
     <ul data-role="listview" data-inset="true" data-filter="true">
@@ -16,12 +24,21 @@
     </ul>
   </xsl:variable>
   <xsl:call-template name="layout-default">
+    <xsl:with-param name="navbar" select="$navbar"/>
     <xsl:with-param name="content" select="$content"/>
     <xsl:with-param name="pageTitle" select="@name"/>
   </xsl:call-template>
 </xsl:template>
 
 <xsl:template match="operation" mode="layout-response">
+  <xsl:variable name="navbar" as="element()+">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="../request/">Request</a></li>
+        <li><a href="" class="ui-btn-active ui-state-persist">Response</a></li>
+      </ul>
+    </div> 
+  </xsl:variable>
   <xsl:variable name="content" as="element()+">
     <h2>Response</h2>
     <ul data-role="listview" data-inset="true" data-filter="true">
@@ -29,6 +46,7 @@
     </ul>
   </xsl:variable>
   <xsl:call-template name="layout-default">
+    <xsl:with-param name="navbar" select="$navbar"/>
     <xsl:with-param name="content" select="$content"/>
     <xsl:with-param name="pageTitle" select="@name"/>
   </xsl:call-template>
