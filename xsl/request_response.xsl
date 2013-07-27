@@ -4,9 +4,10 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:dts="http://davidtsadler.com/"
   exclude-result-prefixes="xs">
 
-<xsl:output method="html" encoding="UTF-8" indent="yes"/>
+<xsl:output method="html" encoding="UTF-8" indent="yes" use-character-maps="dts:html"/>
 
 <xsl:include href="operation_doc.xsl" />
 <xsl:include href="layouts/request_response.xsl" />
@@ -14,6 +15,11 @@
 
 <xsl:param name="destDirectory" required="yes" as="xs:string"/>
 <xsl:param name="wsdlDirectory" required="yes" as="xs:string"/>
+
+<xsl:character-map name="dts:html">
+  <xsl:output-character character="&lt;" string="&lt;"/>
+  <xsl:output-character character="&gt;" string="&gt;"/>
+</xsl:character-map>
 
 <xsl:template match="/">
   <xsl:apply-templates select="//service"/>
