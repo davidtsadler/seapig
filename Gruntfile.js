@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             transformed: {
                 options: {
                     hostname: '*',
-                    base: '<%= transform.dest %>',
+                    base: 'dist',
                     keepalive: true
                   }
             }
