@@ -19,7 +19,8 @@ module.exports = function(grunt) {
         copy: {
             app: {
                 files: [
-                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: 'dist/'}
+                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: 'dist/'},
+                    {expand: true, cwd: 'app/', src: '**', dest: 'dist/'}
                 ]
             }
         },
