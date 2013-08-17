@@ -13,13 +13,26 @@ module.exports = function(grunt) {
         clean: {
             downloads: ['<%= download.dest %>/*'],
             transformed: ['<%= transform.dest %>/*'],
-            dist: 'dist/*'
+            dist: ['.tmp', 'dist']
+        },
+
+        htmlmin: {
+            app: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [
+                    {expand: true, cwd: '<%= transform.dest %>/', src: '**/*.html', dest: '.tmp/'},
+                    {expand: true, cwd: 'app/', src: '**/*.html', dest: '.tmp/'}
+                ]
+            }
         },
 
         copy: {
             app: {
                 files: [
-                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: 'dist/'},
+                    {expand: true, cwd: '.tmp/', src: '**', dest: 'dist/'},
                     {expand: true, cwd: 'app/', src: '**', dest: 'dist/'}
                 ]
             }
@@ -55,7 +68,8 @@ module.exports = function(grunt) {
         
         csslint: {
             src: 'app/css/**/*.css'
-        }
+        },
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -63,6 +77,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadTasks('tasks');
 
     // Default task.
@@ -72,6 +87,7 @@ module.exports = function(grunt) {
         'clean:dist',
         'download',
         'transform',
+        'htmlmin',
         'copy'
     ]);
 };

@@ -6,3 +6,4 @@ downloads
 transformed
 tasks/json/cache.json
 dist
+.tmp
