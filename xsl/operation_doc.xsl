@@ -97,7 +97,7 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:element name="description">
-          <xsl:value-of select="xs:annotation/xs:documentation"/>
+          <xsl:apply-templates select="xs:annotation/xs:documentation"/>
         </xsl:element>
         <xsl:apply-templates select="//xs:complexType[@name=$type]" mode="operation-doc">
           <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', $type)"/>
@@ -105,6 +105,11 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:element>
+</xsl:template>
+
+<xsl:template match="xs:annotation/xs:documentation">
+  <!-- Remove spaces found within elements, E.g. <  /li> -->
+  <xsl:value-of select="replace(.,'&lt;\s+','&lt;')"/>
 </xsl:template>
 
 <xsl:function name="dts:halt_recursion" as="xs:boolean">
