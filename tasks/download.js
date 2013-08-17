@@ -42,8 +42,7 @@ module.exports = function(grunt) {
             grunt.verbose.writeln('Creating cache information.');
             wsdls.files.forEach(function (wsdl) {
                 cacheInfo[wsdl.src] = {
-                    "last_etag_downloaded" : "",
-                    "last_etag_transformed" : ""
+                    "last_etag_downloaded" : ""
                 };
             });
         }
