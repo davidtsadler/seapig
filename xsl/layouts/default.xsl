@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width"/>
     <title><xsl:copy-of select="$pageTitle"/> - Seapig (Beta)</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css"/>
-    <link rel="stylesheet" href="/css/seapig.css"/>
+    <link rel="stylesheet" href="/css/seapig.min.css"/>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
   </head>

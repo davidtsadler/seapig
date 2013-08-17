@@ -29,6 +29,14 @@ module.exports = function(grunt) {
             }
         },
 
+        cssmin: {
+            app: {
+                files: [
+                    {expand: true, cwd: 'app/', src: '**/*.css', dest: '.tmp/', ext: '.min.css'}
+                ],
+            }
+        },
+
         copy: {
             app: {
                 files: [
@@ -78,6 +86,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadTasks('tasks');
 
     // Default task.
@@ -90,6 +99,7 @@ module.exports = function(grunt) {
         'download',
         'transform',
         'htmlmin',
+        'cssmin',
         'copy'
     ]);
 };
