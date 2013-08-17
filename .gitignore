@@ -5,3 +5,4 @@ node_modules
 downloads
 transformed
 tasks/json/cache.json
+dist
