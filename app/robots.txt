@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /best_match_item_details/
 Disallow: /bulk_data_exchange/
 Disallow: /business_policies_management/
 Disallow: /css/
