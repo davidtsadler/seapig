@@ -6,13 +6,13 @@
   list-style: none;
 }
   
-b.type {
+.type {
   font-style: italic;
   font-weight: normal;
   font-size: small;
 }
     
-b.occurrence {
+.occurrence {
   font-weight: normal;
   font-size: small;
 }      
