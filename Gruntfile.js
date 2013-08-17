@@ -51,6 +51,10 @@ module.exports = function(grunt) {
                 node: true,
                 strict: false 
             }
+        },
+        
+        csslint: {
+            src: 'app/css/**/*.css'
         }
     });
 
@@ -58,6 +62,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadTasks('tasks');
 
     // Default task.
