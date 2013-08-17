@@ -1,6 +1,12 @@
 module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
+        clean: {
+            downloads: ['<%= download.dest %>/*'],
+            transformed: ['<%= transform.dest %>/*'],
+            dist: ['.tmp', 'dist']
+        },
+
         download: {
             dest: 'downloads'
         },
@@ -8,12 +14,6 @@ module.exports = function(grunt) {
         transform: {
             wsdls: '<%= download.dest %>',
             dest: 'transformed'
-        },
-
-        clean: {
-            downloads: ['<%= download.dest %>/*'],
-            transformed: ['<%= transform.dest %>/*'],
-            dist: ['.tmp', 'dist']
         },
 
         htmlmin: {
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         
         csslint: {
             src: 'app/css/**/*.css'
-        },
+        }
 
     });
 
@@ -81,9 +81,11 @@ module.exports = function(grunt) {
     grunt.loadTasks('tasks');
 
     // Default task.
-    grunt.registerTask('default', 'jshint');
+    grunt.registerTask('default', ['jshint', 'csslint']);
 
     grunt.registerTask('build', [
+        'jshint',
+        'csslint',
         'clean:dist',
         'download',
         'transform',
