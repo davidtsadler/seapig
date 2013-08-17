@@ -12,7 +12,16 @@ module.exports = function(grunt) {
 
         clean: {
             downloads: ['<%= download.dest %>/*'],
-            transformed: ['<%= transform.dest %>/*']
+            transformed: ['<%= transform.dest %>/*'],
+            dist: 'dist/*'
+        },
+
+        copy: {
+            app: {
+                files: [
+                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: 'dist/'}
+                ]
+            }
         },
 
         connect: {
@@ -48,8 +57,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadTasks('tasks');
 
     // Default task.
     grunt.registerTask('default', 'jshint');
+
+    grunt.registerTask('build', [
+        'clean:dist',
+        'download',
+        'transform'
+    ]);
 };
