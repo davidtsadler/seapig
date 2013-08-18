@@ -27,8 +27,12 @@
 <xsl:template match="wsdl:input|wsdl:output" mode="operation-doc">
   <xsl:variable name="local-name" select="substring-after(@message, ':')"/>
   <xsl:variable name="type" select="substring-after(//xs:element[@name=$local-name]/@type, ':')"/>
+  <xsl:variable name="deprecationVersion" select="dts:get_deprecation_version(//xs:complexType[@name=$type],'')" as="xs:string?"/>
   <xsl:element name="{$local-name}">
     <xsl:attribute name="type" select="$type"/>
+    <xsl:if test="$deprecationVersion">
+      <xsl:attribute name="deprecated" select="$deprecationVersion"/>
+    </xsl:if>
     <xsl:apply-templates select="//xs:complexType[@name=$type]" mode="operation-doc">
       <xsl:with-param name="anti-recursion" select="''"/>
     </xsl:apply-templates>
@@ -78,10 +82,14 @@
   <xsl:param name="inOut" as="xs:string" tunnel="yes"/>
   <xsl:param name="anti-recursion" as="xs:string"/>
   <xsl:variable name="type" select="substring-after(@type, ':')"/>
+  <xsl:variable name="deprecationVersion" select="dts:get_deprecation_version(., $operation)"/>
   <xsl:element name="{@name}">
     <xsl:attribute name="type" select="$type"/>
     <xsl:if test="name()='xs:attribute'">
       <xsl:attribute name="is-attribute"/>
+    </xsl:if>
+    <xsl:if test="$deprecationVersion">
+        <xsl:attribute name="deprecated" select="$deprecationVersion"/>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="$inOut='in'">
@@ -215,6 +223,44 @@
     <xsl:otherwise>
       <xsl:sequence select="'Always'"/>
     </xsl:otherwise>
+  </xsl:choose>
+</xsl:function>
+
+<xsl:function name="dts:get_app_info" as="element()?">
+  <xsl:param name="field" as="element()"/>
+  <xsl:copy-of select="$field/xs:annotation/xs:appinfo"/>
+</xsl:function>
+
+<xsl:function name="dts:get_call_info" as="element()?">
+  <xsl:param name="field" as="element()"/>
+  <xsl:param name="operation" as="xs:string"/>
+  <xsl:variable name="appInfo" select="dts:get_app_info($field)" as="element()?"/>
+  <xsl:choose>
+    <xsl:when test="$appInfo">
+      <xsl:variable name="callInfo" select="($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))])[1] | ($appInfo/*:callInfo[*:allCalls or *:callName=$operation or (*:allCallsExcept and not(tokenize(*:allCallsExcept,', ')=$operation))])[1]"/>
+      <xsl:copy-of select="$callInfo"/>
+    </xsl:when>
+  </xsl:choose>
+</xsl:function>
+
+<xsl:function name="dts:get_deprecation_version" as="xs:string?">
+  <xsl:param name="field" as="element()"/>
+  <xsl:param name="operation" as="xs:string"/>
+  <xsl:variable name="appInfo" select="dts:get_app_info($field)" as="element()?"/>
+  <xsl:variable name="appInfoAlt" select="dts:get_call_info($field, $operation)/*:DeprecationVersion"/>
+  <xsl:choose>
+    <xsl:when test="$appInfo/*:DeprecationVersion">
+      <xsl:value-of select="$appInfo/*:DeprecationVersion"/>
+    </xsl:when>
+    <xsl:when test="$appInfo/*:deprecationVersion">
+      <xsl:value-of select="$appInfo/*:deprecationVersion"/>
+    </xsl:when>
+    <xsl:when test="$appInfoAlt/*:DeprecationVersion">
+      <xsl:value-of select="$appInfoAlt/*:DeprecationVersion"/>
+    </xsl:when>
+    <xsl:when test="$appInfoAlt/*:deprecationVersion">
+      <xsl:value-of select="$appInfoAlt/*:deprecationVersion"/>
+    </xsl:when>
   </xsl:choose>
 </xsl:function>
 

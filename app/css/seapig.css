@@ -16,3 +16,7 @@
   font-weight: normal;
   font-size: small;
 }      
+
+.deprecated {
+  color: #999999;
+}

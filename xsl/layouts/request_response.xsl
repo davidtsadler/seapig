@@ -72,6 +72,9 @@
     </xsl:for-each>
   </xsl:variable>
   <xsl:element name="li">
+    <xsl:if test="@deprecated">
+      <xsl:attribute name="class" select="'deprecated'"/>
+    </xsl:if>
     <xsl:attribute name="data-filtertext">
       <xsl:value-of select="$ancestors"/>
       <xsl:value-of select="name()"/>
@@ -84,7 +87,7 @@
           <xsl:apply-templates select="@required|@returned" mode="layout"/>
         </ul>
       </div>
-      <div class="ui-block-b"><xsl:value-of select="description" disable-output-escaping="yes"/></div>          
+      <div class="ui-block-b"><xsl:if test="@deprecated"><strong>Deprecated as of version <xsl:value-of select="@deprecated"/>.</strong></xsl:if><xsl:value-of select="description" disable-output-escaping="yes"/></div>          
     </div>
   </xsl:element>
   <xsl:apply-templates select="* except(description)" mode="layout"/>
