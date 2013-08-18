@@ -4,6 +4,7 @@ module.exports = function(grunt) {
         clean: {
             downloads: ['<%= download.dest %>/*'],
             transformed: ['<%= transform.dest %>/*'],
+            localhost: ['.tmp', 'localhost'],
             dist: ['.tmp', 'dist']
         },
 
@@ -17,7 +18,7 @@ module.exports = function(grunt) {
         },
 
         htmlmin: {
-            app: {
+            dist: {
                 options: {
                     removeComments: true,
                     collapseWhitespace: true
@@ -30,7 +31,7 @@ module.exports = function(grunt) {
         },
 
         cssmin: {
-            app: {
+            dist: {
                 files: [
                     {expand: true, cwd: 'app/', src: '**/*.css', dest: '.tmp/', ext: '.min.css'}
                 ],
@@ -38,7 +39,22 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            app: {
+            localhost: {
+                files: [
+                    {expand: true, cwd: 'transformed/', src: '**', dest: 'localhost/'},
+                    {expand: true, cwd: 'app/', src: ['**', '!css/seapig.css'], dest: 'localhost/'},
+                    {
+                        expand: true,
+                        cwd: 'app/',
+                        src: 'css/seapig.css',
+                        rename: function (dest, src) {
+                            return dest + src.substring(0, src.indexOf('/')) + '/seapig.min.css';
+                        },
+                        dest: 'localhost/'
+                    }
+                ]
+            },
+            dist: {
                 files: [
                     {expand: true, cwd: '.tmp/', src: '**', dest: 'dist/'},
                     {expand: true, cwd: 'app/', src: '**', dest: 'dist/'}
@@ -47,12 +63,19 @@ module.exports = function(grunt) {
         },
 
         connect: {
-            transformed: {
+            options: {
+                hostname: '*',
+                keepalive: true
+            },
+            localhost: {
                 options: {
-                    hostname: '*',
-                    base: 'dist',
-                    keepalive: true
-                  }
+                    base: 'localhost'
+                }
+            },
+            dist: {
+                options: {
+                    base: 'dist'
+                }
             }
         },
 
@@ -70,10 +93,10 @@ module.exports = function(grunt) {
                 boss: true,
                 eqnull: true,
                 node: true,
-                strict: false 
+                strict: false
             }
         },
-        
+
         csslint: {
             src: 'app/css/**/*.css'
         }
@@ -92,7 +115,13 @@ module.exports = function(grunt) {
     // Default task.
     grunt.registerTask('default', ['jshint', 'csslint']);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('build:localhost', [
+        'clean:localhost',
+        'transform',
+        'copy:localhost'
+    ]);
+
+    grunt.registerTask('build:dist', [
         'jshint',
         'csslint',
         'clean:dist',
