@@ -129,6 +129,6 @@ module.exports = function(grunt) {
         'transform',
         'htmlmin',
         'cssmin',
-        'copy'
+        'copy:dist'
     ]);
 };
