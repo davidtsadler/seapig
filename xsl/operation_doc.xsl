@@ -117,7 +117,7 @@
 
 <xsl:template match="xs:annotation/xs:documentation">
   <!-- Remove spaces found within elements, E.g. <  /li> -->
-  <xsl:value-of select="replace(.,'&lt;\s+','&lt;')"/>
+  <xsl:value-of select="replace(replace(., '&lt;\s+(b|i|code|/)', '&lt;$1'), '&lt;\s+field', '')"/>
 </xsl:template>
 
 <xsl:function name="dts:halt_recursion" as="xs:boolean">
