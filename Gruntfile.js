@@ -116,6 +116,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint', 'csslint']);
 
     grunt.registerTask('build:localhost', [
+        'jshint',
+        'csslint',
         'clean:localhost',
         'transform',
         'copy:localhost'
