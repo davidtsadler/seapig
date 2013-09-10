@@ -3,9 +3,9 @@ module.exports = function(grunt) {
     grunt.initConfig({
         clean: {
             downloads: ['<%= download.dest %>/*'],
-            transformed: ['<%= transform.dest %>/*'],
-            localhost: ['.tmp/localhost'],
-            dist: ['.tmp', 'dist']
+            transformed: ['<%= transform.dest %>'],
+            localhost: ['.tmp/localhost', '.tmp/css'],
+            dist: ['dist', '<%= transform.dest %>', '.tmp/htmlmin', '.tmp/cssmin']
         },
 
         download: {
