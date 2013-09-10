@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 
         transform: {
             wsdls: '<%= download.dest %>',
-            dest: 'transformed'
+            dest: '.tmp/transformed'
         },
 
         htmlmin: {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         copy: {
             localhost: {
                 files: [
-                    {expand: true, cwd: 'transformed/', src: '**', dest: 'localhost/'},
+                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: 'localhost/'},
                     {expand: true, cwd: 'app/', src: ['**', '!css/seapig.css'], dest: 'localhost/'},
                     {
                         expand: true,

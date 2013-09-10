@@ -11,27 +11,20 @@ module.exports = function(grunt) {
         var wsdlDirectory = path.resolve(grunt.config('transform.wsdls'));
         var destDirectory = path.resolve(grunt.config('transform.dest'));
 
-        if (!grunt.file.exists(wsdlDirectory) || !grunt.file.isDir(wsdlDirectory)) {
-            grunt.log.error('WSDL directory ' + wsdlDirectory +' does not exist.');
-            done(false);
-        }
-        else if (!grunt.file.exists(destDirectory) || !grunt.file.isDir(destDirectory)) {
-            grunt.log.error('Transformed directory ' + destDirectory +' does not exist.');
-            done(false);
-        } else {
-            async.series([
-                async.apply(transformServices, destDirectory),
-                async.apply(transformCallReference, wsdlDirectory, destDirectory),
-                async.apply(transformRequestResponse, wsdlDirectory, destDirectory)
-            ], function(err) { 
-                if (err) {
-                    grunt.log.error(err.message);
-                    done(false);
-                } else {
-                    done(true);
-                }
-            });
-        }
+        grunt.file.mkdir(destDirectory);
+
+        async.series([
+            async.apply(transformServices, destDirectory),
+            async.apply(transformCallReference, wsdlDirectory, destDirectory),
+            async.apply(transformRequestResponse, wsdlDirectory, destDirectory)
+        ], function(err) { 
+            if (err) {
+                grunt.log.error(err.message);
+                done(false);
+            } else {
+                done(true);
+            }
+        });
     });
 
     function transformServices(destDirectory, callback) {
