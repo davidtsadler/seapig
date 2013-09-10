@@ -24,8 +24,8 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: [
-                    {expand: true, cwd: '<%= transform.dest %>/', src: '**/*.html', dest: '.tmp/'},
-                    {expand: true, cwd: 'app/', src: '**/*.html', dest: '.tmp/'}
+                    {expand: true, cwd: '<%= transform.dest %>/', src: '**/*.html', dest: '.tmp/htmlmin/'},
+                    {expand: true, cwd: 'app/', src: '**/*.html', dest: '.tmp/htmlmin/'}
                 ]
             }
         },
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         cssmin: {
             dist: {
                 files: [
-                    {expand: true, cwd: 'app/', src: '**/*.css', dest: '.tmp/', ext: '.min.css'}
+                    {expand: true, cwd: 'app/', src: '**/*.css', dest: '.tmp/cssmin/', ext: '.min.css'}
                 ],
             }
         },
@@ -56,7 +56,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: [
-                    {expand: true, cwd: '.tmp/', src: '**', dest: 'dist/'},
+                    {expand: true, cwd: '.tmp/htmlmin/', src: '**', dest: 'dist/'},
+                    {expand: true, cwd: '.tmp/cssmin/', src: '**', dest: 'dist/'},
                     {expand: true, cwd: 'app/', src: '**', dest: 'dist/'}
                 ]
             }
