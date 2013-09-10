@@ -10,28 +10,24 @@ module.exports = function(grunt) {
 
         var done = this.async();
         var destDirectory = path.resolve(grunt.config('download.dest'));
+        var jsonFilePath = path.resolve('tasks/json/wsdls.json');
+        var wsdls = grunt.file.readJSON(jsonFilePath);
+        var cacheInfoFilePath = path.resolve(destDirectory, 'cache.json');
+        var cacheInfo = loadCacheInfo(cacheInfoFilePath, wsdls); 
 
-        if (!grunt.file.exists(destDirectory) || !grunt.file.isDir(destDirectory)) {
-            grunt.log.error('Downloads directory ' + destDirectory +' does not exist.');
-            done(false);
-        } else {
-            var jsonFilePath = path.resolve('tasks/json/wsdls.json');
-            var wsdls = grunt.file.readJSON(jsonFilePath);
-            var cacheInfoFilePath = path.resolve('tasks/json/cache.json');
-            var cacheInfo = loadCacheInfo(cacheInfoFilePath, wsdls); 
+        grunt.file.mkdir(destDirectory);
 
-            async.forEachSeries(wsdls.files, async.apply(processWSDL, cacheInfo, destDirectory), function () {
-                grunt.verbose.writeln('Updating JSON file ' + cacheInfoFilePath);
-                fs.writeFile(cacheInfoFilePath, JSON.stringify(cacheInfo, null, 4), function (err) {
-                    if (err) {
-                        grunt.log.error(err.message);
-                        done(false);
-                    } else {
-                        done(true);
-                    }
-                });
+        async.forEachSeries(wsdls.files, async.apply(processWSDL, cacheInfo, destDirectory), function () {
+            grunt.verbose.writeln('Updating JSON file ' + cacheInfoFilePath);
+            fs.writeFile(cacheInfoFilePath, JSON.stringify(cacheInfo, null, 4), function (err) {
+                if (err) {
+                    grunt.log.error(err.message);
+                    done(false);
+                } else {
+                    done(true);
+                }
             });
-        }
+        });
     });
     
     function loadCacheInfo(cacheInfoFilePath, wsdls)

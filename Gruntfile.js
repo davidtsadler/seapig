@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         },
 
         download: {
-            dest: 'downloads'
+            dest: '.tmp/downloads'
         },
 
         transform: {
