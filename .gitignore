@@ -2,8 +2,5 @@
 *~
 .DS_Store
 node_modules
-transformed
-tasks/json/cache.json
 dist
 .tmp
-localhost

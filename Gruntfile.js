@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         clean: {
             downloads: ['<%= download.dest %>/*'],
             transformed: ['<%= transform.dest %>/*'],
-            localhost: ['.tmp', 'localhost'],
+            localhost: ['.tmp/localhost'],
             dist: ['.tmp', 'dist']
         },
 
@@ -41,8 +41,8 @@ module.exports = function(grunt) {
         copy: {
             localhost: {
                 files: [
-                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: 'localhost/'},
-                    {expand: true, cwd: 'app/', src: ['**', '!css/seapig.css'], dest: 'localhost/'},
+                    {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: '.tmp/localhost/'},
+                    {expand: true, cwd: 'app/', src: ['**', '!css/seapig.css'], dest: '.tmp/localhost/'},
                     {
                         expand: true,
                         cwd: 'app/',
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                         rename: function (dest, src) {
                             return dest + src.substring(0, src.indexOf('/')) + '/seapig.min.css';
                         },
-                        dest: 'localhost/'
+                        dest: '.tmp/localhost/'
                     }
                 ]
             },
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
             },
             localhost: {
                 options: {
-                    base: 'localhost'
+                    base: '.tmp/localhost'
                 }
             },
             dist: {
