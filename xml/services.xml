@@ -115,17 +115,6 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/merchandising/latest/MerchandisingService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Best Match Item Details" local-wsdl="best_match_item_details.wsdl">
-      <description>Understand factors that influence your Best Match ranking.</description>
-      <ebay-urls>
-        <url name="Users Guide" href="http://developer.ebay.com/Devzone/best-match-item-details/Concepts/BestMatchItemDetailsAPIGuide.html" />
-        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/best-match-item-details/Concepts/MakingACall.html" />
-        <url name="Tutorials" href="http://developer.ebay.com/Devzone/best-match-item-details/HowTo/index.html" />
-        <url name="Call Reference" href="http://developer.ebay.com/Devzone/best-match-item-details/CallRef/index.html" />
-        <url name="Release Notes" href="http://developer.ebay.com/Devzone/best-match-item-details/ReleaseNotes.html" />
-        <url name="WSDL" href="http://developer.ebay.com/webservices/best-match-item-details/latest/BestMatchItemDetailsService.wsdl" />
-      </ebay-urls>
-    </service>
   </category>
   <category name="Large Merchant Services">
     <service name="Bulk Data Exchange" local-wsdl="bulk_data_exchange.wsdl">
