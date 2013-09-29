@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         },
 
         jshint: {
-            all: ['grunt.js', 'tasks/*.js', 'tasks/json/*.json'],
+            all: ['Gruntfile.js', 'tasks/*.js', 'tasks/json/*.json'],
             options: {
                 curly: true,
                 eqeqeq: true,
