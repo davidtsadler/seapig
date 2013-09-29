@@ -63,7 +63,9 @@
   <xsl:param name="operation" as="xs:string" tunnel="yes"/>
   <xsl:param name="inOut" as="xs:string" tunnel="yes"/>
   <xsl:param name="anti-recursion" as="xs:string"/>
-  <xsl:variable name="type" select="substring-after(@base, ':')"/>
+  <xsl:variable name="type" select="if (contains(@base, ':'))
+                          then substring-after(@base, ':')
+                          else @base"/>
   <xsl:apply-templates select="//xs:complexType[@name=$type]" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="$anti-recursion"/>
   </xsl:apply-templates>
