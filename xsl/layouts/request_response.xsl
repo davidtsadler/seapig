@@ -66,7 +66,7 @@
   <xsl:variable name="ancestors" as="xs:string*">
     <xsl:for-each select="ancestor::*">
       <xsl:sort select="position()" order="ascending"/>
-      <xsl:if test="position() > 2">
+      <xsl:if test="position() > 3">
         <xsl:value-of select="concat(name(), ' ')"/>
       </xsl:if>
     </xsl:for-each>
