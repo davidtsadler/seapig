@@ -85,6 +85,7 @@
           <li><xsl:value-of select="$ancestors"/><strong><xsl:if test="@is-attribute">[</xsl:if><xsl:value-of select="name()"/><xsl:if test="@is-attribute">]</xsl:if></strong></li>
           <xsl:apply-templates select="@type" mode="layout"/>
           <xsl:apply-templates select="@required|@returned" mode="layout"/>
+          <xsl:apply-templates select="@repeatable" mode="layout"/>
         </ul>
       </div>
       <div class="ui-block-b"><xsl:if test="@deprecated"><strong>Deprecated as of version <xsl:value-of select="@deprecated"/>.</strong></xsl:if><xsl:value-of select="description" disable-output-escaping="yes"/></div>          
@@ -99,6 +100,10 @@
 
 <xsl:template match="@required|@returned" mode="layout">
   <li><b class="occurrence"><xsl:value-of select="."/></b></li>
+</xsl:template>
+
+<xsl:template match="@repeatable" mode="layout">
+  <li><b class="repeatable">Repeatable: [<xsl:value-of select="."/>]</b></li>
 </xsl:template>
 
 </xsl:stylesheet>

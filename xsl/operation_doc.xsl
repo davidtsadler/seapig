@@ -101,6 +101,35 @@
         <xsl:attribute name="returned" select="dts:get_required_output(., $operation)"/>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:if test="@maxOccurs = 'unbounded' or @maxOccurs > 1">
+      <xsl:attribute name="repeatable">
+        <xsl:variable name="callInfo" select="dts:get_call_info(., $operation)"/>
+        <xsl:variable name="minOccurs">
+          <xsl:choose>
+            <xsl:when test="@minOccurs">
+              <xsl:value-of select="@minOccurs"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="'1'"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="maxOccurs">
+          <xsl:choose>
+            <xsl:when test="$callInfo//*:MaxOccurs">
+              <xsl:value-of select="$callInfo//*:MaxOccurs"/>
+            </xsl:when>
+            <xsl:when test="./xs:annotation/xs:appinfo/*:MaxOccurs">
+              <xsl:value-of select="./xs:annotation/xs:appinfo/*:MaxOccurs"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="replace(@maxOccurs, 'unbounded', '*')"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="concat($minOccurs, '..', $maxOccurs)"/>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="dts:halt_recursion($anti-recursion, $type)">
         <xsl:attribute name="recursive" select="'true'"/>
