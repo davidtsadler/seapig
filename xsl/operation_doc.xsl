@@ -53,7 +53,7 @@
     <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
     <xsl:sort select="@name"/>
   </xsl:apply-templates>
-  <xsl:apply-templates select="xs:sequence/xs:element[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
+  <xsl:apply-templates select="xs:sequence//xs:element[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
     <xsl:sort select="@name"/>
   </xsl:apply-templates>
@@ -73,7 +73,7 @@
     <xsl:with-param name="anti-recursion" select="$anti-recursion"/>
     <xsl:sort select="@name"/>
   </xsl:apply-templates>
-  <xsl:apply-templates select="xs:sequence/xs:element[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
+  <xsl:apply-templates select="xs:sequence//xs:element[dts:include_field(., $operation, $inOut)]" mode="operation-doc">
     <xsl:with-param name="anti-recursion" select="$anti-recursion"/>
     <xsl:sort select="@name"/>
   </xsl:apply-templates>
@@ -148,7 +148,7 @@
 
 <xsl:template match="xs:annotation/xs:documentation">
   <!-- Remove spaces found within elements, E.g. <  /li> -->
-  <xsl:value-of select="replace(replace(., '&lt;\s+(b|i|code|/)', '&lt;$1'), '&lt;\s+field', '')"/>
+  <xsl:value-of select="replace(replace(., '&lt;/*\s+(b|i|code|/)', '&lt;$1'), '&lt;\s+field', '')"/>
 </xsl:template>
 
 <xsl:function name="dts:halt_recursion" as="xs:boolean">
@@ -158,26 +158,12 @@
     <xsl:when test="$type='string' or $type='integer' or $type='dateTime' or $type='boolean' or $type='int' or $type='float' or $type='decimal' or $type='double' or $type='time'">
       <xsl:sequence select="false()"/>
     </xsl:when>
-    <xsl:when test="dts:substring-count($anti-recursion, $type) > 2">
+    <xsl:when test="count(tokenize($anti-recursion,' ')[.=$type]) > 2">
       <xsl:sequence select="true()"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:sequence select="false()"/>
     </xsl:otherwise>
-  </xsl:choose>
-</xsl:function>
-
-<xsl:function name="dts:substring-count" as="xs:integer">
-  <xsl:param name="haystack" />
-  <xsl:param name="needle" />
-  <xsl:choose>
-    <xsl:when test="contains($haystack, $needle) and $haystack and $needle">
-      <xsl:variable name="count" as="xs:integer">
-        <xsl:copy-of select="dts:substring-count(substring-after($haystack, $needle), $needle)" />
-      </xsl:variable>
-      <xsl:value-of select="$count + 1" />
-    </xsl:when>
-    <xsl:otherwise>0</xsl:otherwise>
   </xsl:choose>
 </xsl:function>
 
