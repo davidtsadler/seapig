@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         cssmin: {
             dist: {
                 files: [
-                    {expand: true, cwd: 'app/', src: '**/*.css', dest: '.tmp/cssmin/', ext: '.min.css'}
+                    {expand: true, cwd: 'app/', src: '**/*.css', dest: '.tmp/cssmin/', ext: '.css'}
                 ],
             }
         },
@@ -42,23 +42,14 @@ module.exports = function(grunt) {
             localhost: {
                 files: [
                     {expand: true, cwd: '<%= transform.dest %>/', src: '**', dest: '.tmp/localhost/'},
-                    {expand: true, cwd: 'app/', src: ['**', '!css/seapig.css'], dest: '.tmp/localhost/'},
-                    {
-                        expand: true,
-                        cwd: 'app/',
-                        src: 'css/seapig.css',
-                        rename: function (dest, src) {
-                            return dest + src.substring(0, src.indexOf('/')) + '/seapig.min.css';
-                        },
-                        dest: '.tmp/localhost/'
-                    }
+                    {expand: true, cwd: 'app/', src: '**', dest: '.tmp/localhost/'}
                 ]
             },
             dist: {
                 files: [
                     {expand: true, cwd: '.tmp/htmlmin/', src: '**', dest: 'dist/'},
                     {expand: true, cwd: '.tmp/cssmin/', src: '**', dest: 'dist/'},
-                    {expand: true, cwd: 'app/', src: '**', dest: 'dist/'}
+                    {src: 'app/robots.txt', dest: 'dist/robots.txt'}
                 ]
             }
         },
