@@ -3,6 +3,10 @@
   <category name="Searching">
     <service name="Finding" local-wsdl="finding.wsdl">
       <description>Search eBay. Build search and browse experiences.</description>
+      <endpoints>
+        <endpoint name="Production" href="http://svcs.ebay.com/services/search/FindingService/v1" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/search/FindingService/v1" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/finding/Concepts/FindingAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/finding/Concepts/MakingACall.html" />
@@ -16,6 +20,12 @@
   <category name="Selling">
     <service name="Trading" local-wsdl="trading.wsdl">
       <description>List and manage inventory, fulfill orders, communicate with customers, and more.</description>
+      <endpoints>
+        <endpoint name="Production (XML)" href="https://api.ebay.com/ws/api.dll" />
+        <endpoint name="Production (SOAP)" href="https://api.ebay.com/wsapi" />
+        <endpoint name="Sandbox (XML)" href="https://api.sandbox.ebay.com/ws/api.dll" />
+        <endpoint name="Sandbox (SOAP)" href="https://api.sandbox.ebay.com/wsapi" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/XML/docs/WebHelp/wwhelp/wwhimpl/js/html/wwhelp.htm" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/XML/docs/WebHelp/wwhelp/wwhimpl/common/html/wwhelp.htm?context=eBay_XML_API&amp;file=InvokingWebServices-.html" />
@@ -27,6 +37,10 @@
     </service>
     <service name="Business Policies Management" local-wsdl="business_policies_management.wsdl">
       <description>Create payment, shipping, and return policy profiles that can be applied to entire category groups.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/selling/v1/SellerProfilesManagementService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/selling/v1/SellerProfilesManagementService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/business-policies/Concepts/BusinessPoliciesAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/business-policies/Concepts/MakingACall.html" />
@@ -38,6 +52,10 @@
     </service>
     <service name="Return Management" local-wsdl="return_management.wsdl">
       <description>Retrieve and manage buyer returns.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/returns/v1/ReturnManagementService" />
+        <endpoint name="Sandbox" href="https://svcs.sandbox.ebay.com/services/returns/v1/ReturnManagementService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/return-management/Concepts/ReturnManagementAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/return-management/Concepts/MakingACall.html" />
@@ -49,6 +67,10 @@
     </service>
     <service name="Product" local-wsdl="product.wsdl">
       <description>Retrieve product information for parts compatibility.</description>
+      <endpoints>
+        <endpoint name="Production" href="http://svcs.ebay.com/services/marketplacecatalog/ProductService/v1" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/marketplacecatalog/ProductService/v1" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/product/Concepts/ProductAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/product/Concepts/MakingACall.html" />
@@ -60,6 +82,10 @@
     </service>
     <service name="Product Metadata" local-wsdl="product_metadata.wsdl">
       <description>Retrieve product information for parts compatibility.</description>
+      <endpoints>
+        <endpoint name="Production" href="http://svcs.ebay.com/services/marketplacecatalog/ProductMetadataService/v1" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/marketplacecatalog/ProductMetadataService/v1" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/Product/Concepts/ProductAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/Product/Concepts/MakingACall.html" />
@@ -71,6 +97,10 @@
     </service>
     <service name="Related Items Management" local-wsdl="related_items_management.wsdl">
       <description>Create and manage product bundles.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/sellerinventory/v1/BundleManagementService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/BundleManagementService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/related-items/Concepts/SalesMaximizerAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/related-items/Concepts/MakingACall.html" />
@@ -82,6 +112,10 @@
     </service>
     <service name="Seller Offers" local-wsdl="seller_offers.wsdl">
       <description>Create and manage discount campaigns.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/incentives/v2/SellerDiscountOfferManagementService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/incentives/v2/SellerDiscountOfferManagementService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/seller-offers/Concepts/SalesMaximizerAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/seller-offers/Concepts/MakingACall.html" />
@@ -95,6 +129,10 @@
   <category name="Buying">
     <service name="Shopping" local-wsdl="shopping.wsdl">
       <description>Retrieve public item and user data.</description>
+      <endpoints>
+        <endpoint name="Production" href="http://open.api.ebay.com/shopping" />
+        <endpoint name="Sandbox" href="http://open.api.sandbox.ebay.com/shopping" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/shopping/docs/Concepts/ShoppingAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/shopping/docs/Concepts/ShoppingAPI_FormatOverview.html" />
@@ -106,6 +144,10 @@
     </service>
     <service name="Merchandising" local-wsdl="merchandising.wsdl">
       <description>Cross-sell and up-sell eBay items to buyers.</description>
+      <endpoints>
+        <endpoint name="Production" href="http://svcs.ebay.com/MerchandisingService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/MerchandisingService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/merchandising/docs/Concepts/MerchandisingAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/merchandising/docs/Concepts/MerchandisingAPI_FormatOverview.html" />
@@ -119,6 +161,10 @@
   <category name="Large Merchant Services">
     <service name="Bulk Data Exchange" local-wsdl="bulk_data_exchange.wsdl">
       <description>Manage inventory and orders on a large scale.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://webservices.ebay.com/BulkDataExchangeService" />
+        <endpoint name="Sandbox" href="https://webservices.sandbox.ebay.com/BulkDataExchangeService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/LMS_APIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/MakingACall.html" />
@@ -130,6 +176,10 @@
     </service>
     <service name="File Transfer" local-wsdl="file_transfer.wsdl">
       <description>Manage inventory and orders on a large scale.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://storage.ebay.com/FileTransferService" />
+        <endpoint name="Sandbox" href="https://storage.sandbox.ebay.com/FileTransferService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/LMS_APIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/DevZone/large-merchant-services/Concepts/MakingACall.html" />
@@ -143,6 +193,10 @@
   <category name="Users">
     <service name="Feedback" local-wsdl="feedback.wsdl">
       <description>Report on Detailed Seller Ratings (DSRs).</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/FeedbackService" />
+        <endpoint name="Sandbox" href="https://svcs.sandbox.ebay.com/FeedbackService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/feedback/Concepts/FeedbackAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/feedback/Concepts/MakingACall.html" />
@@ -154,6 +208,10 @@
     </service>
     <service name="Resolution Case Management" local-wsdl="resolution_case_management.wsdl">
       <description>Retrieve dispute details.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/resolution/v1/ResolutionCaseManagementService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/resolution/v1/ResolutionCaseManagementService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/resolution-case-management/Concepts/ResoCaseAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/resolution-case-management/Concepts/MakingACall.html" />
@@ -165,6 +223,10 @@
     </service>
     <service name="Payout Details" local-wsdl="payout_details.wsdl">
       <description>Retrieve details on payouts sent by eBay to a seller's account. (for sellers listing on eBay Germany and Austria sites only)</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/fundstatus/v1/PayoutDetailsService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/fundstatus/v1/PayoutDetailsService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/payout-details/Concepts/PayoutDetailsAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/payout-details/Concepts/MakingACall.html" />
@@ -176,6 +238,10 @@
     </service>
     <service name="Order Adjustment" local-wsdl="order_adjustment.wsdl">
       <description>Resolve payment discrepancies, such as overpayment or underpayment by buyers, for a seller's orders. (for sellers listing on eBay Germany and Austria sites only)</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/opms/v1/OrderAdjustmentService" />
+        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/opms/v1/OrderAdjustmentService" />
+      </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/Devzone/order-adjustment/Concepts/OrderAdjustmentAPIGuide.html" />
         <url name="Making an API Call" href="http://developer.ebay.com/Devzone/order-adjustment/Concepts/MakingACall.html" />

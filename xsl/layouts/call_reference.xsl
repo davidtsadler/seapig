@@ -13,18 +13,10 @@
   <xsl:variable name="version" select="if (exists($wsdl//wsdl:service/wsdl:documentation/*:Version))
                                                then $wsdl//wsdl:service/wsdl:documentation/*:Version
                                                else $wsdl//wsdl:service/wsdl:documentation/*:version" as="xs:string"/>
-  <xsl:variable name="prodEndpoint" select="if (exists($wsdl//wsdl:service/*/wsdlsoap:address))
-                                               then $wsdl//wsdl:service/*/wsdlsoap:address/@location
-                                               else $wsdl//wsdl:service/*/soap12:address/@location" as="xs:string"/>
-  <xsl:variable name="sandboxEndpoint" select="replace($prodEndpoint,'ebay.com','sandbox.ebay.com')" as="xs:string"/>
   <xsl:variable name="content" as="element()+">
     <div data-role="collapsible" data-theme="b" data-content-theme="c">
       <h2><xsl:value-of select="@name"/> API <small>Version <xsl:value-of select="$version"/></small></h2>
-      <h3>Service Endpints</h3>
-      <dl>
-        <dt>Production</dt><dd><xsl:value-of select="$prodEndpoint"/></dd>
-        <dt>Sandbox</dt><dd><xsl:value-of select="$sandboxEndpoint"/></dd>
-      </dl>
+      <xsl:apply-templates select="endpoints" mode="layout"/>
       <xsl:apply-templates select="ebay-urls" mode="layout"/>
     </div>
     <h3>Call Reference</h3>
@@ -38,6 +30,17 @@
     <xsl:with-param name="content" select="$content"/>
     <xsl:with-param name="pageTitle" select="@name"/>
   </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="endpoints" mode="layout">
+  <h3>Service Endpoints</h3>
+  <dl>
+    <xsl:apply-templates select="endpoint" mode="layout"/>
+  </dl>
+</xsl:template>
+
+<xsl:template match="endpoint" mode="layout">
+  <dt><xsl:value-of select="@name"/></dt><dd><xsl:value-of select="@href"/></dd>
 </xsl:template>
 
 <xsl:template match="ebay-urls" mode="layout">
