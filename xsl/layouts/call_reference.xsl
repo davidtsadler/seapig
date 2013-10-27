@@ -22,8 +22,8 @@
       <h2><xsl:value-of select="@name"/> API <small>Version <xsl:value-of select="$version"/></small></h2>
       <h3>Service Endpints</h3>
       <dl>
-        <dt>Sandbox</dt><dd><xsl:value-of select="$prodEndpoint"/></dd>
-        <dt>Production</dt><dd><xsl:value-of select="$sandboxEndpoint"/></dd>
+        <dt>Production</dt><dd><xsl:value-of select="$prodEndpoint"/></dd>
+        <dt>Sandbox</dt><dd><xsl:value-of select="$sandboxEndpoint"/></dd>
       </dl>
       <xsl:apply-templates select="ebay-urls" mode="layout"/>
     </div>
