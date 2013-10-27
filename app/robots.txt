@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /best_match_item_details/
 Disallow: /bulk_data_exchange/
 Disallow: /business_policies_management/
 Disallow: /css/
@@ -7,15 +6,13 @@ Disallow: /feedback/
 Disallow: /file_transfer/
 Disallow: /finding/
 Disallow: /merchandising/
-Disallow: /open_ebay_apps/
 Disallow: /order_adjustment/
-Disallow: /order_size_discounts/
 Disallow: /payout_details/
 Disallow: /product/
 Disallow: /product_metadata/
 Disallow: /related_items_management/
 Disallow: /resolution_case_management/
 Disallow: /return_management/
+Disallow: /seller_offers/
 Disallow: /shopping/
 Disallow: /trading/
-

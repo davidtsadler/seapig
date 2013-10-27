@@ -29,8 +29,8 @@
             "dest": "related_items_management.wsdl"
         },
         {
-            "src": "http://developer.ebay.com/webservices/order-size/latest/SellerDiscountOfferManagementService.wsdl",
-            "dest": "order_size_discounts.wsdl"
+            "src": "http://developer.ebay.com/webservices/seller-offers/latest/SellerDiscountOfferManagementServiceV2.wsdl",
+            "dest": "seller_offers.wsdl"
         },
         {
             "src": "http://developer.ebay.com/webservices/latest/ShoppingService.wsdl",
@@ -41,20 +41,12 @@
             "dest": "merchandising.wsdl"
         },
         {
-            "src": "http://developer.ebay.com/webservices/best-match-item-details/latest/BestMatchItemDetailsService.wsdl",
-            "dest": "best_match_item_details.wsdl"
-        },
-        {
             "src": "http://developer.ebay.com/webservices/bulk-data-exchange/latest/BulkDataExchangeService.wsdl",
             "dest": "bulk_data_exchange.wsdl"
         },
         {
             "src": "http://developer.ebay.com/webservices/file-transfer/latest/FileTransferService.wsdl",
             "dest": "file_transfer.wsdl"
-        },
-        {
-            "src": "http://developer.ebay.com/webservices/open-ebay-application-integration/latest/OpeneBayApplicationIntegrationService.wsdl",
-            "dest": "open_ebay_apps.wsdl"
         },
         {
             "src": "http://developer.ebay.com/webservices/feedback/latest/FeedbackService.wsdl",
