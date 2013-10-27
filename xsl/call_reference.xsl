@@ -12,6 +12,7 @@
 
 <xsl:param name="destDirectory" required="yes" as="xs:string"/>
 <xsl:param name="wsdlDirectory" required="yes" as="xs:string"/>
+<xsl:param name="version" required="yes" as="xs:string"/>
 
 <xsl:template match="/">
   <xsl:apply-templates select="//service"/>

@@ -17,7 +17,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width"/>
-    <title><xsl:copy-of select="$pageTitle"/> - Seapig (Beta)</title>
+    <title><xsl:copy-of select="$pageTitle"/> - Seapig (v<xsl:copy-of select="$version"/>)</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css"/>
     <link rel="stylesheet" href="/css/seapig.css"/>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -38,6 +38,7 @@
       </div>
       <div data-role="footer">
         <h4>Site developed by <a href="http://davidtsadler.com/" target="_blank" title="Link to the site's developer.">David T. Sadler.</a></h4>
+        <h6>Version: <xsl:copy-of select="$version"/></h6>
         <h6>Last updated: <xsl:value-of select="format-date(current-date(),'[Y]-[M01]-[D01]')"/></h6>
       </div>
     </div>

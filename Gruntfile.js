@@ -1,6 +1,8 @@
 module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+
         clean: {
             downloads: '<%= download.dest %>',
             transformed: '<%= transform.dest %>',
@@ -14,7 +16,8 @@ module.exports = function(grunt) {
 
         transform: {
             wsdls: '<%= download.dest %>',
-            dest: '.tmp/transformed'
+            dest: '.tmp/transformed',
+            version: '<%= pkg.version %>'
         },
 
         htmlmin: {

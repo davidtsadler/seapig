@@ -11,6 +11,7 @@
 <xsl:include href="layouts/default.xsl" />
 
 <xsl:param name="destDirectory" required="yes" as="xs:string"/>
+<xsl:param name="version" required="yes" as="xs:string"/>
 
 <xsl:template match="/">
   <xsl:result-document href="{$destDirectory}/index.html">
