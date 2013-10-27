@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         clean: {
             downloads: ['<%= download.dest %>/*'],
             transformed: ['<%= transform.dest %>'],
-            localhost: ['.tmp/localhost', '.tmp/css'],
+            localhost: ['.tmp/localhost'],
             dist: ['dist', '<%= transform.dest %>', '.tmp/htmlmin', '.tmp/cssmin']
         },
 
