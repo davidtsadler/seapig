@@ -39,7 +39,6 @@
       <div data-role="footer">
         <h4>Site developed by <a href="http://davidtsadler.com/" target="_blank" title="Link to the site's developer.">David T. Sadler.</a></h4>
         <h6>Version: <xsl:copy-of select="$version"/></h6>
-        <h6>Last updated: <xsl:value-of select="format-date(current-date(),'[Y]-[M01]-[D01]')"/></h6>
       </div>
     </div>
   </body>
