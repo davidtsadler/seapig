@@ -2,10 +2,10 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         clean: {
-            downloads: ['<%= download.dest %>/*'],
-            transformed: ['<%= transform.dest %>'],
-            localhost: ['.tmp/localhost'],
-            dist: ['dist', '<%= transform.dest %>', '.tmp/htmlmin', '.tmp/cssmin']
+            downloads: '<%= download.dest %>',
+            transformed: '<%= transform.dest %>',
+            localhost: '.tmp/localhost',
+            dist: ['dist', '<%= download.dest %>', '<%= transform.dest %>', '.tmp/htmlmin', '.tmp/cssmin']
         },
 
         download: {
