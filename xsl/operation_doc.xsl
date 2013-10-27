@@ -216,7 +216,7 @@
       </xsl:choose>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:sequence select="'Required'"/>
+      <xsl:sequence select="''"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:function>
