@@ -2,7 +2,11 @@
   font-weight: normal;
 }
     
-.ui-grid-a ul li {
+ul {
+  padding: 0;
+}
+
+ul li {
   list-style: none;
 }
   
