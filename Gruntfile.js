@@ -94,8 +94,22 @@ module.exports = function(grunt) {
 
         csslint: {
             src: 'app/css/**/*.css'
+        },
+        bump: {
+            options: {
+                files: ['package.json'],
+                updateConfigs: [],
+                commit: true,
+                commitMessage: 'Release v%VERSION%',
+                commitFiles: ['package.json'],
+                createTag: true,
+                tagName: 'v%VERSION%',
+                tagMessage: 'Version %VERSION%',
+                push: true,
+                pushTo: 'origin',
+                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+            }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -105,6 +119,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-bump');
     grunt.loadTasks('tasks');
 
     // Default task.
