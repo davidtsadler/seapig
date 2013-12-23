@@ -1,5 +1,7 @@
 # SEAPIG
 
+# **Please note that the website does not currently exist online. For the moment you can clone/fork this repository and generate a local copy of the site.**
+
 Welcome to the **S**partan **E**Bay **A**pplication **P**rogramming **I**nterface **G**uide
 
 I've always found the official [documentation](https://go.developer.ebay.com/developers/ebay/documentation-tools/) a great resource for developers wishing to make use of the eBay API. For an API that is as complex as eBay's, this is an important tool that you should familiarize yourself with as it provides detailed information on every method that you could possible call and is freely available to everyone.
