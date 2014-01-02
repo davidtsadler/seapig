@@ -14,13 +14,16 @@
                                                then $wsdl//wsdl:service/wsdl:documentation/*:Version
                                                else $wsdl//wsdl:service/wsdl:documentation/*:version" as="xs:string"/>
   <xsl:variable name="content" as="element()+">
-    <div data-role="collapsible" data-theme="b" data-content-theme="c">
+    <div data-role="collapsible" data-theme="b" data-content-theme="c" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
       <h2><xsl:value-of select="@name"/> API <small>Version <xsl:value-of select="$version"/></small></h2>
       <xsl:apply-templates select="endpoints" mode="layout"/>
       <xsl:apply-templates select="ebay-urls" mode="layout"/>
     </div>
     <h3>Call Reference</h3>
-    <ul data-role="listview" data-inset="true" data-filter="true">
+    <form class="ui-filterable">
+      <input id="call-reference-filter" data-type="search" placeholder="Filter call reference..."/>
+    </form>
+    <ul data-role="listview" data-inset="true" data-filter="true" data-input="#call-reference-filter">
     <xsl:apply-templates select="$wsdl//wsdl:portType/wsdl:operation" mode="layout">
       <xsl:sort select="@name"/>
     </xsl:apply-templates>

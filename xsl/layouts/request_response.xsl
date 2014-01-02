@@ -11,7 +11,7 @@
 <xsl:template match="operation" mode="layout-request">
   <xsl:param name="serviceName" as="xs:string"/>
   <xsl:variable name="serviceBtn" as="element()+">
-    <a href="../../" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><xsl:value-of select="$serviceName"/></a>
+    <a href="../../" class="ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l"><xsl:value-of select="$serviceName"/></a>
   </xsl:variable>
   <xsl:variable name="navbar" as="element()+">
     <div data-role="navbar">
@@ -23,7 +23,10 @@
   </xsl:variable>
   <xsl:variable name="content" as="element()+">
     <h2>Request</h2>
-    <ul data-role="listview" data-inset="true" data-filter="true">
+    <form class="ui-filterable">
+      <input id="request-filter" data-type="search" placeholder="Filter request..."/>
+    </form>
+    <ul data-role="listview" data-inset="true" data-filter="true" data-input="#request-filter">
     <xsl:apply-templates select="request/*" mode="layout"/>
     </ul>
   </xsl:variable>
@@ -38,7 +41,7 @@
 <xsl:template match="operation" mode="layout-response">
   <xsl:param name="serviceName" as="xs:string"/>
   <xsl:variable name="serviceBtn" as="element()+">
-    <a href="../../" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><xsl:value-of select="$serviceName"/></a>
+    <a href="../../" class="ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l"><xsl:value-of select="$serviceName"/></a>
   </xsl:variable>
   <xsl:variable name="navbar" as="element()+">
     <div data-role="navbar">
@@ -50,7 +53,10 @@
   </xsl:variable>
   <xsl:variable name="content" as="element()+">
     <h2>Response</h2>
-    <ul data-role="listview" data-inset="true" data-filter="true">
+    <form class="ui-filterable">
+      <input id="response-filter" data-type="search" placeholder="Filter response..."/>
+    </form> 
+    <ul data-role="listview" data-inset="true" data-filter="true" data-input="#response-filter">
     <xsl:apply-templates select="response/*" mode="layout"/>
     </ul>
   </xsl:variable>

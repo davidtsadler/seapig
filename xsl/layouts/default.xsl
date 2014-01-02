@@ -18,24 +18,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width"/>
     <title><xsl:copy-of select="$pageTitle"/> - Seapig (v<xsl:copy-of select="$version"/>)</title>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"/>
     <link rel="stylesheet" href="/css/seapig.css"/>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
   </head>
   <body>
     <div data-role="page">
       <div data-role="header">
-        <div class="ui-btn-left">
-          <a href="/" data-role="button" data-inline="true" data-icon="home">Home</a>
+        <div class="ui-mini ui-btn-left">
+          <a href="/" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home">Home</a>
           <xsl:copy-of select="$serviceBtn"/>
         </div>
         <h1><xsl:value-of select="$pageTitle"/></h1>
-        <div class="ui-btn-right">
-          <a href="/about/" data-role="button" data-inline="true" data-icon="info">About</a>
-        </div>
+        <a href="/about/" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-info">About</a>
+        <xsl:copy-of select="$navbar"/>
       </div>
-      <xsl:copy-of select="$navbar"/>
       <div data-role="content">
       <xsl:copy-of select="$content"/>
       </div>
