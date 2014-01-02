@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     var url = require('url');
     var async = grunt.util.async;
 
-    grunt.registerTask('download', 'Intelligently download the eBay API WSDLs.', function () {
+    grunt.registerTask('download', 'Download the eBay API WSDLs.', function () {
         grunt.config.requires('download.dest');
 
         var done = this.async();
