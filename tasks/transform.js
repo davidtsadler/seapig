@@ -18,7 +18,8 @@ module.exports = function(grunt) {
         async.series([
             async.apply(transformServices, destDirectory, version),
             async.apply(transformCallReference, wsdlDirectory, destDirectory, version),
-            async.apply(transformRequestResponse, wsdlDirectory, destDirectory, version)
+            async.apply(transformRequestResponse, wsdlDirectory, destDirectory, version),
+            async.apply(transformIntoSitemap, wsdlDirectory, destDirectory, version)
         ], function(err) { 
             if (err) {
                 grunt.log.error(err.message);
@@ -39,6 +40,10 @@ module.exports = function(grunt) {
 
     function transformRequestResponse(wsdlDirectory, destDirectory, version, callback) {
         saxonb('xml/services.xml', 'xsl/request_response.xsl', wsdlDirectory, destDirectory, version, callback);
+    }
+
+    function transformIntoSitemap(wsdlDirectory, destDirectory, version, callback) {
+        saxonb('xml/services.xml', 'xsl/sitemap.xsl', wsdlDirectory, destDirectory, version, callback);
     }
 
     function saxonb(xml, xsl, wsdlDirectory, destDirectory, version, callback) {
