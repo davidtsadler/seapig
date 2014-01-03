@@ -31,7 +31,7 @@
           <xsl:copy-of select="$serviceBtn"/>
         </div>
         <h1><xsl:value-of select="$pageTitle"/></h1>
-        <a href="/about/" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-info">About</a>
+        <a href="/about/" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-info">About</a>
         <xsl:copy-of select="$navbar"/>
       </div>
       <div data-role="content">
