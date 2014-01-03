@@ -52,6 +52,7 @@ module.exports = function(grunt) {
                 files: [
                     {expand: true, cwd: '.tmp/htmlmin/', src: '**', dest: 'dist/'},
                     {expand: true, cwd: '.tmp/cssmin/', src: '**', dest: 'dist/'},
+                    {src: '<%= transform.dest %>/sitemap.xml', dest: 'dist/sitemap.xml'},
                     {src: 'app/robots.txt', dest: 'dist/robots.txt'}
                 ]
             }

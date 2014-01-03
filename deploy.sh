@@ -9,6 +9,9 @@ s3cmd sync --acl-public --exclude '*.*' --include '*.css' --add-header="Cache-Co
 # HTML (Cache: 1 week)
 s3cmd sync --acl-public --exclude '*.*' --include  '*.html' --add-header="Cache-Control: max-age=604800, must-revalidate" dist/ s3://seapig.net/
 
+# Sitemap.xml (Cache: 1 week)
+s3cmd sync --acl-public --exclude '*.*' --include  'sitemap.xml' --add-header="Cache-Control: max-age=604800, must-revalidate" dist/ s3://seapig.net/
+
 # Robots.txt (Cache: expire in 10weeks)
 s3cmd sync --acl-public --exclude '*.*' --include 'robots.txt' --add-header="Expires: Sat, 21 Nov 2020 00:00:00 GMT" --add-header="Cache-Control: max-age=6048000"  dist/ s3://seapig.net/
 
