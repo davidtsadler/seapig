@@ -15,7 +15,7 @@
 </xsl:text>
   <head>
     <meta charset="utf-8"/>
-    <title><xsl:copy-of select="$pageTitle"/> - Seapig (v<xsl:copy-of select="$version"/>)</title>
+    <title><xsl:copy-of select="$pageTitle"/> - Seapig</title>
     <meta name="author" content="David T. Sadler"/>
     <meta name="description" content="Navigate and read the eBay API documentation on your mobile device with ease. This is my unoffical Spartan eBay API Guide."/>
     <meta name="copyright" content="Copyright 2014 by David T. Sadler. All Rights Reserved."/>

@@ -19,7 +19,7 @@ This is why I've created Seapig. It aims to be a site that is a simplified, or *
   - The site will be improved by fixing issues and adding new features.
   - **Mobile friendly**
   - I wanted this site to be usable on a mobile device.
-  - **Available on Github**
+  - **Available on GitHub**
   - You can get the code from the GitHub [repository](https://github.com/davidtsadler/seapig) if you wish to generate a local copy of this site.
 
 ## What the site isn't 
