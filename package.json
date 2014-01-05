@@ -1,6 +1,6 @@
 {
     "name": "seapig",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "A jQuery Mobile powered site where the content has been parsed from the offical eBay API wsdls.",
     "author": "David T. Sadler <davidtsadler.@googlemail.com> (http://davidtsadler.com/)",
     "license": "MIT",
