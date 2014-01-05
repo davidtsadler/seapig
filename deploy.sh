@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Build site
-grunt build:dist
-
 # CSS (Cache: expire in 1 week)
 s3cmd sync --acl-public --exclude '*.*' --include '*.css' --add-header="Cache-Control: max-age=604800"  dist/css/ s3://seapig.net/css/
 
