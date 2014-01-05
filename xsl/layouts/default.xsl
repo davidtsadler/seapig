@@ -17,7 +17,7 @@
     <meta charset="utf-8"/>
     <title><xsl:copy-of select="$pageTitle"/> - Seapig</title>
     <meta name="author" content="David T. Sadler"/>
-    <meta name="description" content="Navigate and read the eBay API documentation on your mobile device with ease. This is my unoffical Spartan eBay API Guide."/>
+    <meta name="description" content="Navigate and read the eBay API documentation on your mobile device with ease. This is my unofficial Spartan eBay API Guide."/>
     <meta name="copyright" content="Copyright 2014 by David T. Sadler. All Rights Reserved."/>
     <meta name="robots" content="follow, noindex, noodp, noydir, noarchive"/>
     <meta name="viewport" content="width=device-width"/>
@@ -42,7 +42,7 @@
       <xsl:copy-of select="$content"/>
       </div>
       <div data-role="footer">
-        <h4>Site developed by <a href="http://davidtsadler.com/" target="_blank" title="Link to the site's developer.">David T. Sadler.</a></h4>
+        <h4>Site developed by <a href="http://davidtsadler.com/" target="_blank" title="Link to the site's developer.">David T. Sadler</a><a href="https://github.com/davidtsadler/seapig" target="_blank" title="Link to the site's GitHub repository"><i class="fa fa-github fa-fw fa-2x"></i></a></h4>
         <h6>
           Share<br/>
           <a class="social-btn google" href="https://plus.google.com/share?url=http%3A%2F%2Fseapig.net%2F" title="Share on Google Plus"><i class="fa fa-google-plus fa-fw fa-2x"></i></a>
