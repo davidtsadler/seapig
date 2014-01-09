@@ -57,6 +57,11 @@
     <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
     <xsl:sort select="@name"/>
   </xsl:apply-templates>
+  <xsl:if test="@name='AbstractRequestType'">
+    <xsl:apply-templates select="//xs:element[@name='RequesterCredentials']" mode="operation-doc">
+      <xsl:with-param name="anti-recursion" select="concat($anti-recursion, ' ', @name)"/>
+    </xsl:apply-templates>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="xs:extension" mode="operation-doc">
