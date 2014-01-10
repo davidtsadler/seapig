@@ -28,7 +28,7 @@
       </endpoints>
       <ebay-urls>
         <url name="Users Guide" href="http://developer.ebay.com/DevZone/guides/ebayfeatures/index.html" />
-        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/XML/docs/WebHelp/wwhelp/wwhimpl/common/html/wwhelp.htm?context=eBay_XML_API&amp;file=InvokingWebServices-.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/XML/docs/Concepts/MakingACall.html" />
         <url name="Tutorials" href="http://developer.ebay.com/Devzone/XML/docs/HowTo/index.html" />
         <url name="Call Reference" href="http://developer.ebay.com/Devzone/XML/docs/Reference/eBay/index.html" />
         <url name="Release Notes" href="http://developer.ebay.com/Devzone/XML/docs/ReleaseNotes.html" />
