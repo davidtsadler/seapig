@@ -63,6 +63,10 @@
         {
             "src": "http://developer.ebay.com/webservices/order-adjustment/latest/OrderAdjustmentService.wsdl",
             "dest": "order_adjustment.wsdl"
+        },
+        {
+            "src": "http://developer.ebay.com/webservices/half-finding/latest/HalfFindingService.wsdl",
+            "dest": "half_finding.wsdl"
         }
     ]
 }

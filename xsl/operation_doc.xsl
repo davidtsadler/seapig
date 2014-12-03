@@ -189,7 +189,7 @@
 <xsl:function name="dts:get_required_input" as="xs:string">
   <xsl:param name="field" as="element()?"/>
   <xsl:param name="operation" as="xs:string"/>
-  <xsl:variable name="appInfo" select="$field/xs:annotation/xs:appinfo" as="element()?"/>
+  <xsl:variable name="appInfo" select="$field/xs:annotation/xs:appinfo" as="element()*"/>
   <xsl:choose>
     <xsl:when test="$appInfo">
       <xsl:variable name="str" select="string(($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))][*:RequiredInput]/*:RequiredInput)[1])"/>
@@ -229,7 +229,7 @@
 <xsl:function name="dts:get_required_output" as="xs:string">
   <xsl:param name="field" as="element()"/>
   <xsl:param name="operation" as="xs:string"/>
-  <xsl:variable name="appInfo" select="$field/xs:annotation/xs:appinfo" as="element()?" />
+  <xsl:variable name="appInfo" select="$field/xs:annotation/xs:appinfo" as="element()*" />
   <xsl:choose>
     <xsl:when test="$appInfo">
       <xsl:variable name="str" select="string(($appInfo/*:CallInfo[*:AllCalls or *:CallName=$operation or (*:AllCallsExcept and not(tokenize(*:AllCallsExcept,', ')=$operation))][*:Returned]/*:Returned)[1])"/>

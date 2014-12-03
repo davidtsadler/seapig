@@ -16,6 +16,21 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/Finding/latest/FindingService.wsdl" />
       </ebay-urls>
     </service>
+    <service name="Half Finding" local-wsdl="half_finding.wsdl">
+      <description>Search Half.com.</description>
+      <endpoints>
+        <endpoint name="Production" href="https://svcs.ebay.com/services/half/HalfFindingService/v1" />
+        <endpoint name="Sandbox" href="http://svcs.ebay.com/services/half/HalfFindingService/v1" />
+      </endpoints>
+      <ebay-urls>
+        <url name="Users Guide" href="http://developer.ebay.com/devzone/half-finding/Concepts/HalfFindingAPIGuide.html" />
+        <url name="Making an API Call" href="http://developer.ebay.com/devzone/half-finding/Concepts/MakingACall.html" />
+        <url name="Tutorials" href="http://developer.ebay.com/devzone/half-finding/HowTo/index.html" />
+        <url name="Call Reference" href="http://developer.ebay.com/devzone/half-finding/CallRef/index.html" />
+        <url name="Release Notes" href="http://developer.ebay.com/devzone/half-finding/ReleaseNotes.html" />
+        <url name="WSDL" href="http://developer.ebay.com/webservices/half-finding/latest/HalfFindingService.wsdl" />
+      </ebay-urls>
+    </service>
   </category>
   <category name="Selling">
     <service name="Trading" local-wsdl="trading.wsdl">
@@ -108,21 +123,6 @@
         <url name="Call Reference" href="http://developer.ebay.com/Devzone/related-items/CallRef/index.html" />
         <url name="Release Notes" href="http://developer.ebay.com/Devzone/related-items/ReleaseNotes.html" />
         <url name="WSDL" href="http://developer.ebay.com/webservices/related-items/latest/BundleManagementService.wsdl" />
-      </ebay-urls>
-    </service>
-    <service name="Seller Offers" local-wsdl="seller_offers.wsdl">
-      <description>Create and manage discount campaigns.</description>
-      <endpoints>
-        <endpoint name="Production" href="https://svcs.ebay.com/services/incentives/v2/SellerDiscountOfferManagementService" />
-        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/incentives/v2/SellerDiscountOfferManagementService" />
-      </endpoints>
-      <ebay-urls>
-        <url name="Users Guide" href="http://developer.ebay.com/Devzone/seller-offers/Concepts/SalesMaximizerAPIGuide.html" />
-        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/seller-offers/Concepts/MakingACall.html" />
-        <url name="Tutorials" href="http://developer.ebay.com/Devzone/seller-offers/HowTo/index.html" />
-        <url name="Call Reference" href="http://developer.ebay.com/Devzone/seller-offers/CallRef/index.html" />
-        <url name="Release Notes" href="http://developer.ebay.com/Devzone/seller-offers/ReleaseNotes.html" />
-        <url name="WSDL" href="http://developer.ebay.com/webservices/seller-offers/latest/SellerDiscountOfferManagementServiceV2.wsdl" />
       </ebay-urls>
     </service>
   </category>
