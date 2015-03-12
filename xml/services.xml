@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <services>
   <category name="Searching">
-    <service name="Finding" local-wsdl="finding.wsdl">
+    <service name="Finding" local-wsdl="FindingService.wsdl">
       <description>Search eBay. Build search and browse experiences.</description>
       <endpoints>
         <endpoint name="Production" href="http://svcs.ebay.com/services/search/FindingService/v1" />
@@ -16,7 +16,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/Finding/latest/FindingService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Half Finding" local-wsdl="half_finding.wsdl">
+    <service name="Half Finding" local-wsdl="HalfFindingService.wsdl">
       <description>Search Half.com.</description>
       <endpoints>
         <endpoint name="Production" href="https://svcs.ebay.com/services/half/HalfFindingService/v1" />
@@ -33,7 +33,7 @@
     </service>
   </category>
   <category name="Selling">
-    <service name="Trading" local-wsdl="trading.wsdl">
+    <service name="Trading" local-wsdl="ebaySvc.wsdl">
       <description>List and manage inventory, fulfill orders, communicate with customers, and more.</description>
       <endpoints>
         <endpoint name="Production (XML)" href="https://api.ebay.com/ws/api.dll" />
@@ -50,7 +50,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/latest/ebaySvc.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Business Policies Management" local-wsdl="business_policies_management.wsdl">
+    <service name="Business Policies Management" local-wsdl="SellerProfilesManagementService.wsdl">
       <description>Create payment, shipping, and return policy profiles that can be applied to entire category groups.</description>
       <endpoints>
         <endpoint name="Production" href="https://svcs.ebay.com/services/selling/v1/SellerProfilesManagementService" />
@@ -65,7 +65,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/business-policies/latest/SellerProfilesManagementService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Return Management" local-wsdl="return_management.wsdl">
+    <service name="Return Management" local-wsdl="ReturnManagementService.wsdl">
       <description>Retrieve and manage buyer returns.</description>
       <endpoints>
         <endpoint name="Production" href="https://svcs.ebay.com/services/returns/v1/ReturnManagementService" />
@@ -80,7 +80,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/return-management/latest/ReturnManagementService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Product" local-wsdl="product.wsdl">
+    <service name="Product" local-wsdl="ProductService.wsdl">
       <description>Retrieve product information for parts compatibility.</description>
       <endpoints>
         <endpoint name="Production" href="http://svcs.ebay.com/services/marketplacecatalog/ProductService/v1" />
@@ -95,7 +95,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/product/latest/ProductService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Product Metadata" local-wsdl="product_metadata.wsdl">
+    <service name="Product Metadata" local-wsdl="ProductMetadataService.wsdl">
       <description>Retrieve product information for parts compatibility.</description>
       <endpoints>
         <endpoint name="Production" href="http://svcs.ebay.com/services/marketplacecatalog/ProductMetadataService/v1" />
@@ -110,7 +110,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/product-metadata/latest/ProductMetadataService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Related Items Management" local-wsdl="related_items_management.wsdl">
+    <service name="Related Items Management" local-wsdl="BundleManagementService.wsdl">
       <description>Create and manage product bundles.</description>
       <endpoints>
         <endpoint name="Production" href="https://svcs.ebay.com/services/sellerinventory/v1/BundleManagementService" />
@@ -127,7 +127,7 @@
     </service>
   </category>
   <category name="Buying">
-    <service name="Shopping" local-wsdl="shopping.wsdl">
+    <service name="Shopping" local-wsdl="ShoppingService.wsdl">
       <description>Retrieve public item and user data.</description>
       <endpoints>
         <endpoint name="Production" href="http://open.api.ebay.com/shopping" />
@@ -142,7 +142,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/latest/ShoppingService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Merchandising" local-wsdl="merchandising.wsdl">
+    <service name="Merchandising" local-wsdl="MerchandisingService.wsdl">
       <description>Cross-sell and up-sell eBay items to buyers.</description>
       <endpoints>
         <endpoint name="Production" href="http://svcs.ebay.com/MerchandisingService" />
@@ -159,7 +159,7 @@
     </service>
   </category>
   <category name="Large Merchant Services">
-    <service name="Bulk Data Exchange" local-wsdl="bulk_data_exchange.wsdl">
+    <service name="Bulk Data Exchange" local-wsdl="BulkDataExchangeService.wsdl">
       <description>Manage inventory and orders on a large scale.</description>
       <endpoints>
         <endpoint name="Production" href="https://webservices.ebay.com/BulkDataExchangeService" />
@@ -174,7 +174,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/bulk-data-exchange/latest/BulkDataExchangeService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="File Transfer" local-wsdl="file_transfer.wsdl">
+    <service name="File Transfer" local-wsdl="FileTransferService.wsdl">
       <description>Manage inventory and orders on a large scale.</description>
       <endpoints>
         <endpoint name="Production" href="https://storage.ebay.com/FileTransferService" />
@@ -191,7 +191,7 @@
     </service>
   </category>
   <category name="Users">
-    <service name="Feedback" local-wsdl="feedback.wsdl">
+    <service name="Feedback" local-wsdl="FeedbackService.wsdl">
       <description>Report on Detailed Seller Ratings (DSRs).</description>
       <endpoints>
         <endpoint name="Production" href="https://svcs.ebay.com/FeedbackService" />
@@ -206,7 +206,7 @@
         <url name="WSDL" href="http://developer.ebay.com/webservices/feedback/latest/FeedbackService.wsdl" />
       </ebay-urls>
     </service>
-    <service name="Resolution Case Management" local-wsdl="resolution_case_management.wsdl">
+    <service name="Resolution Case Management" local-wsdl="ResolutionCaseManagementService.wsdl">
       <description>Retrieve dispute details.</description>
       <endpoints>
         <endpoint name="Production" href="https://svcs.ebay.com/services/resolution/v1/ResolutionCaseManagementService" />
@@ -219,36 +219,6 @@
         <url name="Call Reference" href="http://developer.ebay.com/Devzone/resolution-case-management/CallRef/index.html" />
         <url name="Release Notes" href="http://developer.ebay.com/Devzone/resolution-case-management/ReleaseNotes.html" />
         <url name="WSDL" href="http://developer.ebay.com/webservices/resolution-case-management/latest/ResolutionCaseManagementService.wsdl" />
-      </ebay-urls>
-    </service>
-    <service name="Payout Details" local-wsdl="payout_details.wsdl">
-      <description>Retrieve details on payouts sent by eBay to a seller's account. (for sellers listing on eBay Germany and Austria sites only)</description>
-      <endpoints>
-        <endpoint name="Production" href="https://svcs.ebay.com/services/fundstatus/v1/PayoutDetailsService" />
-        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/fundstatus/v1/PayoutDetailsService" />
-      </endpoints>
-      <ebay-urls>
-        <url name="Users Guide" href="http://developer.ebay.com/Devzone/payout-details/Concepts/PayoutDetailsAPIGuide.html" />
-        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/payout-details/Concepts/MakingACall.html" />
-        <url name="Tutorials" href="http://developer.ebay.com/Devzone/payout-details/HowTo/index.html" />
-        <url name="Call Reference" href="http://developer.ebay.com/Devzone/payout-details/CallRef/index.html" />
-        <url name="Release Notes" href="http://developer.ebay.com/Devzone/payout-details/ReleaseNotes.html" />
-        <url name="WSDL" href="http://developer.ebay.com/webservices/payout-details/latest/PayoutDetailsService.wsdl" />
-      </ebay-urls>
-    </service>
-    <service name="Order Adjustment" local-wsdl="order_adjustment.wsdl">
-      <description>Resolve payment discrepancies, such as overpayment or underpayment by buyers, for a seller's orders. (for sellers listing on eBay Germany and Austria sites only)</description>
-      <endpoints>
-        <endpoint name="Production" href="https://svcs.ebay.com/services/opms/v1/OrderAdjustmentService" />
-        <endpoint name="Sandbox" href="http://svcs.sandbox.ebay.com/services/opms/v1/OrderAdjustmentService" />
-      </endpoints>
-      <ebay-urls>
-        <url name="Users Guide" href="http://developer.ebay.com/Devzone/order-adjustment/Concepts/OrderAdjustmentAPIGuide.html" />
-        <url name="Making an API Call" href="http://developer.ebay.com/Devzone/order-adjustment/Concepts/MakingACall.html" />
-        <url name="Tutorials" href="http://developer.ebay.com/Devzone/order-adjustment/HowTo/index.html" />
-        <url name="Call Reference" href="http://developer.ebay.com/Devzone/order-adjustment/CallRef/index.html" />
-        <url name="Release Notes" href="http://developer.ebay.com/Devzone/order-adjustment/ReleaseNotes.html" />
-        <url name="WSDL" href="http://developer.ebay.com/webservices/order-adjustment/latest/OrderAdjustmentService.wsdl" />
       </ebay-urls>
     </service>
   </category>

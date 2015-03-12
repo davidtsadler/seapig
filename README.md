@@ -49,36 +49,24 @@ The transforming of the eBay WSDLs is done with the `saxonb-xslt` command line t
 Open up your command line terminal and follow the steps below.
 
 1. Clone the repository with `git clone https://github.com/davidtsadler/seapig.git`.
-2. Use `cd seapig` to enter the project directory.
-3. Run `npm install` to install the node dependencies.
-4. Download the eBay WSDLs with `grunt download`.
-5. Generate a local copy of the site with `grunt build:localhost`.
-6. Fire up the local web server with `grunt connect:localhost`.
-7. Open your browser and navigate to [http://localhost:8000](http://localhost:8000).
+1. Use `cd seapig` to enter the project directory.
+1. Run `npm install` to install the node dependencies.
+1. Generate a local copy of the site with `make build localhost`.
+1. Fire up the local web server with `make serve`.
+1. Open your browser and navigate to [http://localhost:8080](http://localhost:8080).
 
 ## Workflow
 
 The workflow below may be used when making changes to the code.
 
-1. Start the node web server with `grunt connect:localhost`. Note that you will need to keep your console open to ensure the server remains running.
-2. Run `grunt download`. This task downloads the latest version of the official eBay WSDLs into a temporary directory. The downloaded files can be kept while making changes to the code. You will only need to run this task again if you delete the WSDLs or if you require the latest versions. 
-3. Run `grunt build:localhost`. This task will transform the WSDLs into HTML that is then combined with other files, e.g CSS, to produce the full site. It will also prepare the code so it can be served up by the node web server. The XSL files used for the transforming can be found in the `xsl` directory. Files that are not generated from the WSDLs, such as the 'About' page, can be found in the `app` directory.
-4. See the local version of the site by opening your browser at [http://localhost:8000](http://localhost:8000).
-5. Edit the code and make any changes that you require.
-6. Run `grunt build:localhost` again.
-7. Test your changes in the browser.
-8. Repeat steps 5-7 until you are ready to commit your changes.
-
-## Deploying
-
-Running `grunt build:dist` will do the following.
-
-* Download the latest official eBay WSDLs.
-* Transform the WSDLs into HTML and combine with other files to produce the full site.
-* Minify the CSS.
-* Minify the HTML.
-
-The final code can be found within the `dist` directory and is ready to be deployed to your production server.
+1. Start the node web server with `make serve`. Note that you will need to keep your console open to ensure the server remains running.
+1. Run `make download`. This task downloads the latest version of the official eBay WSDLs into a temporary directory. The downloaded files can be kept while making changes to the code. You will only need to run this task again if you delete the WSDLs or if you require the latest versions. 
+1. Run `make transform localhost`. This task will transform the WSDLs into HTML that is then combined with other files, e.g CSS, to produce the full site. It will also prepare the code so it can be served up by the node web server. The XSL files used for the transforming can be found in the `xsl` directory. Files that are not generated from the WSDLs, such as the 'About' page, can be found in the `app` directory.
+1. See the local version of the site by opening your browser at [http://localhost:8080](http://localhost:8080).
+1. Edit the code and make any changes that you require.
+1. Run `make transform localhost` again.
+1. Test your changes in the browser.
+1. Repeat steps 5-7 until you are ready to commit your changes.
 
 ## Copyright & License
 
